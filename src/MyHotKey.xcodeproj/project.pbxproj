@@ -1,0 +1,940 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E52ADD0B1D3A66FA00431B7A /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52ADD091D3A66FA00431B7A /* Preferences.xib */; };
+		E5564B231D65844F004B53B1 /* PreferenceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E5564B221D65844F004B53B1 /* PreferenceUtil.m */; };
+		E5834D891D56D3B2001926D0 /* UHotKeyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834D871D56D3B2001926D0 /* UHotKeyTextField.m */; };
+		E5834D941D56D562001926D0 /* UWindowGridsHotKeyPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834D8B1D56D562001926D0 /* UWindowGridsHotKeyPrefViewController.m */; };
+		E5834D951D56D562001926D0 /* UWindowsPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834D8D1D56D562001926D0 /* UWindowsPrefViewController.m */; };
+		E5834D961D56D562001926D0 /* WindowGridsHotKeyPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5834D8E1D56D562001926D0 /* WindowGridsHotKeyPref.xib */; };
+		E5834D981D56D562001926D0 /* WindowHotKeyGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834D921D56D562001926D0 /* WindowHotKeyGroup.m */; };
+		E5834D991D56D562001926D0 /* WindowsPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5834D931D56D562001926D0 /* WindowsPref.xib */; };
+		E5834D9C1D56D575001926D0 /* UPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834D9B1D56D575001926D0 /* UPreferencesWindowController.m */; };
+		E5834D9E1D5EEE7D001926D0 /* AddAppHotKeyDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5834D9D1D5EEE7D001926D0 /* AddAppHotKeyDialog.xib */; };
+		E5834DA11D5EFD49001926D0 /* UAddAppHotKeyDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DA01D5EFD49001926D0 /* UAddAppHotKeyDialog.m */; };
+		E5834DBE1D60D2C2001926D0 /* AppHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DB01D60D2C2001926D0 /* AppHotKey.m */; };
+		E5834DBF1D60D2C2001926D0 /* HotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DB31D60D2C2001926D0 /* HotKey.m */; };
+		E5834DC01D60D2C2001926D0 /* HotKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DB51D60D2C2001926D0 /* HotKeyManager.m */; };
+		E5834DC11D60D2C2001926D0 /* HotKeyMap.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DB71D60D2C2001926D0 /* HotKeyMap.m */; };
+		E5834DC21D60D2C2001926D0 /* MyAppHotKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DB91D60D2C2001926D0 /* MyAppHotKeys.m */; };
+		E5834DC31D60D2C2001926D0 /* MyWindowHotKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DBB1D60D2C2001926D0 /* MyWindowHotKeys.m */; };
+		E5834DC41D60D2C2001926D0 /* WindowHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DBD1D60D2C2001926D0 /* WindowHotKey.m */; };
+		E5834DC91D688892001926D0 /* JSONPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DC81D688892001926D0 /* JSONPreference.m */; };
+		E5834DCC1D68CC23001926D0 /* iCloudSync.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DCB1D68CC23001926D0 /* iCloudSync.m */; };
+		E5834DD11D69858B001926D0 /* MyError.m in Sources */ = {isa = PBXBuildFile; fileRef = E5834DD01D69858B001926D0 /* MyError.m */; };
+		E5A341071D5DC73B00D5E376 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A341041D5DC73B00D5E376 /* AppInfo.m */; };
+		E5A341081D5DC73B00D5E376 /* AppUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A341061D5DC73B00D5E376 /* AppUtils.m */; };
+		E5A341111D5DC84800D5E376 /* WindowGridsHotKeyPrefItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A341101D5DC84800D5E376 /* WindowGridsHotKeyPrefItem.m */; };
+		E5B954C51D6AE3E7005A534F /* GTLR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B954C41D6AE3E7005A534F /* GTLR.framework */; };
+		E5B954C91D6AE9D0005A534F /* GTLR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5B954C81D6AE9D0005A534F /* GTLR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E5B954D31D6AF360005A534F /* GoogleDriveSync.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B954D21D6AF360005A534F /* GoogleDriveSync.m */; };
+		E5D0EAA81D372AC70061E260 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAA71D372AC70061E260 /* AppDelegate.m */; };
+		E5D0EAAB1D372AC70061E260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAAA1D372AC70061E260 /* main.m */; };
+		E5D0EAAD1D372AC70061E260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D0EAAC1D372AC70061E260 /* Assets.xcassets */; };
+		E5D0EAB01D372AC70061E260 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D0EAAE1D372AC70061E260 /* MainMenu.xib */; };
+		E5D0EABB1D372AC80061E260 /* MyHotKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EABA1D372AC80061E260 /* MyHotKeyTests.m */; };
+		E5D0EAC61D372AC80061E260 /* MyHotKeyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAC51D372AC80061E260 /* MyHotKeyUITests.m */; };
+		E5D0EADB1D372B8E0061E260 /* WindowList.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAD81D372B8E0061E260 /* WindowList.m */; };
+		E5D0EADC1D372B8E0061E260 /* WindowListData.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EADA1D372B8E0061E260 /* WindowListData.m */; };
+		E5D0EAE71D372BB70061E260 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAE41D372BB70061E260 /* Constants.m */; };
+		E5D0EAE81D372BB70061E260 /* ScreenUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAE61D372BB70061E260 /* ScreenUtils.m */; };
+		E5D0EAF91D372BD70061E260 /* AXAction.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAEA1D372BD70061E260 /* AXAction.m */; };
+		E5D0EAFA1D372BD70061E260 /* AXAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAEC1D372BD70061E260 /* AXAttribute.m */; };
+		E5D0EAFB1D372BD70061E260 /* AXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAEE1D372BD70061E260 /* AXElement.m */; };
+		E5D0EAFC1D372BD70061E260 /* AXMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAF01D372BD70061E260 /* AXMenuBar.m */; };
+		E5D0EAFD1D372BD70061E260 /* AXUIApp.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAF21D372BD70061E260 /* AXUIApp.m */; };
+		E5D0EAFE1D372BD70061E260 /* AXUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAF41D372BD70061E260 /* AXUIButton.m */; };
+		E5D0EAFF1D372BD70061E260 /* AXUIMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAF61D372BD70061E260 /* AXUIMenu.m */; };
+		E5D0EB001D372BD70061E260 /* AXUIWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAF81D372BD70061E260 /* AXUIWindow.m */; };
+		E5D3F77C1D5C25FE00AB8DBB /* ApplicationPref.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D3F7791D5C25FE00AB8DBB /* ApplicationPref.xib */; };
+		E5D3F77D1D5C25FE00AB8DBB /* UAppPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3F77B1D5C25FE00AB8DBB /* UAppPrefViewController.m */; };
+		E5D883AF1D6C96D500205ADD /* SyncPreference.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D883AE1D6C96D500205ADD /* SyncPreference.xib */; };
+		E5D883B21D6C988000205ADD /* USyncPrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D883B11D6C988000205ADD /* USyncPrefViewController.m */; };
+		E5D883B61D6C9B3800205ADD /* GTLRDriveObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D883B31D6C9B3800205ADD /* GTLRDriveObjects.m */; };
+		E5D883B71D6C9B3800205ADD /* GTLRDriveQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D883B41D6C9B3800205ADD /* GTLRDriveQuery.m */; };
+		E5D883B81D6C9B3800205ADD /* GTLRDriveService.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D883B51D6C9B3800205ADD /* GTLRDriveService.m */; };
+		E5D883BA1D6DD95A00205ADD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D883B91D6DD95A00205ADD /* WebKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5D0EAB71D372AC80061E260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5D0EA9B1D372AC70061E260 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5D0EAA21D372AC70061E260;
+			remoteInfo = MyHotKey;
+		};
+		E5D0EAC21D372AC80061E260 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5D0EA9B1D372AC70061E260 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5D0EAA21D372AC70061E260;
+			remoteInfo = MyHotKey;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5B954C71D6AE621005A534F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "@executable_path/..";
+			dstSubfolderSpec = 10;
+			files = (
+				E5B954C91D6AE9D0005A534F /* GTLR.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E52ADD0A1D3A66FA00431B7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MyHotKey/Base.lproj/Preferences.xib; sourceTree = "<group>"; };
+		E5564B211D65844F004B53B1 /* PreferenceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferenceUtil.h; path = MyHotKey/Utils/PreferenceUtil.h; sourceTree = "<group>"; };
+		E5564B221D65844F004B53B1 /* PreferenceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferenceUtil.m; path = MyHotKey/Utils/PreferenceUtil.m; sourceTree = "<group>"; };
+		E5834D851D56B2B7001926D0 /* UMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UMessageDelegate.h; path = MyHotKey/Preferences/UMessageDelegate.h; sourceTree = "<group>"; };
+		E5834D861D56D3B2001926D0 /* UHotKeyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UHotKeyTextField.h; path = MyHotKey/Preferences/UHotKeyTextField.h; sourceTree = "<group>"; };
+		E5834D871D56D3B2001926D0 /* UHotKeyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UHotKeyTextField.m; path = MyHotKey/Preferences/UHotKeyTextField.m; sourceTree = "<group>"; };
+		E5834D881D56D3B2001926D0 /* UHotKeyTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UHotKeyTextFieldDelegate.h; path = MyHotKey/Preferences/UHotKeyTextFieldDelegate.h; sourceTree = "<group>"; };
+		E5834D8A1D56D562001926D0 /* UWindowGridsHotKeyPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UWindowGridsHotKeyPrefViewController.h; path = MyHotKey/Preferences/WindowsPreference/UWindowGridsHotKeyPrefViewController.h; sourceTree = "<group>"; };
+		E5834D8B1D56D562001926D0 /* UWindowGridsHotKeyPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UWindowGridsHotKeyPrefViewController.m; path = MyHotKey/Preferences/WindowsPreference/UWindowGridsHotKeyPrefViewController.m; sourceTree = "<group>"; };
+		E5834D8C1D56D562001926D0 /* UWindowsPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UWindowsPrefViewController.h; path = MyHotKey/Preferences/WindowsPreference/UWindowsPrefViewController.h; sourceTree = "<group>"; };
+		E5834D8D1D56D562001926D0 /* UWindowsPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UWindowsPrefViewController.m; path = MyHotKey/Preferences/WindowsPreference/UWindowsPrefViewController.m; sourceTree = "<group>"; };
+		E5834D8E1D56D562001926D0 /* WindowGridsHotKeyPref.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WindowGridsHotKeyPref.xib; path = MyHotKey/Preferences/WindowsPreference/WindowGridsHotKeyPref.xib; sourceTree = "<group>"; };
+		E5834D911D56D562001926D0 /* WindowHotKeyGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowHotKeyGroup.h; path = MyHotKey/Preferences/WindowsPreference/WindowHotKeyGroup.h; sourceTree = "<group>"; };
+		E5834D921D56D562001926D0 /* WindowHotKeyGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowHotKeyGroup.m; path = MyHotKey/Preferences/WindowsPreference/WindowHotKeyGroup.m; sourceTree = "<group>"; };
+		E5834D931D56D562001926D0 /* WindowsPref.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WindowsPref.xib; path = MyHotKey/Preferences/WindowsPreference/WindowsPref.xib; sourceTree = "<group>"; };
+		E5834D9A1D56D575001926D0 /* UPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UPreferencesWindowController.h; path = MyHotKey/Preferences/UPreferencesWindowController.h; sourceTree = "<group>"; };
+		E5834D9B1D56D575001926D0 /* UPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UPreferencesWindowController.m; path = MyHotKey/Preferences/UPreferencesWindowController.m; sourceTree = "<group>"; };
+		E5834D9D1D5EEE7D001926D0 /* AddAppHotKeyDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddAppHotKeyDialog.xib; path = MyHotKey/Preferences/ApplicationPreference/AddAppHotKeyDialog.xib; sourceTree = "<group>"; };
+		E5834D9F1D5EFD49001926D0 /* UAddAppHotKeyDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAddAppHotKeyDialog.h; path = MyHotKey/Preferences/ApplicationPreference/UAddAppHotKeyDialog.h; sourceTree = "<group>"; };
+		E5834DA01D5EFD49001926D0 /* UAddAppHotKeyDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAddAppHotKeyDialog.m; path = MyHotKey/Preferences/ApplicationPreference/UAddAppHotKeyDialog.m; sourceTree = "<group>"; };
+		E5834DAF1D60D2C2001926D0 /* AppHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppHotKey.h; path = MyHotKey/HotKey/AppHotKey.h; sourceTree = "<group>"; };
+		E5834DB01D60D2C2001926D0 /* AppHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppHotKey.m; path = MyHotKey/HotKey/AppHotKey.m; sourceTree = "<group>"; };
+		E5834DB11D60D2C2001926D0 /* HotKey_protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotKey_protected.h; path = MyHotKey/HotKey/HotKey_protected.h; sourceTree = "<group>"; };
+		E5834DB21D60D2C2001926D0 /* HotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotKey.h; path = MyHotKey/HotKey/HotKey.h; sourceTree = "<group>"; };
+		E5834DB31D60D2C2001926D0 /* HotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotKey.m; path = MyHotKey/HotKey/HotKey.m; sourceTree = "<group>"; };
+		E5834DB41D60D2C2001926D0 /* HotKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotKeyManager.h; path = MyHotKey/HotKey/HotKeyManager.h; sourceTree = "<group>"; };
+		E5834DB51D60D2C2001926D0 /* HotKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotKeyManager.m; path = MyHotKey/HotKey/HotKeyManager.m; sourceTree = "<group>"; };
+		E5834DB61D60D2C2001926D0 /* HotKeyMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HotKeyMap.h; path = MyHotKey/HotKey/HotKeyMap.h; sourceTree = "<group>"; };
+		E5834DB71D60D2C2001926D0 /* HotKeyMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HotKeyMap.m; path = MyHotKey/HotKey/HotKeyMap.m; sourceTree = "<group>"; };
+		E5834DB81D60D2C2001926D0 /* MyAppHotKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyAppHotKeys.h; path = MyHotKey/HotKey/MyAppHotKeys.h; sourceTree = "<group>"; };
+		E5834DB91D60D2C2001926D0 /* MyAppHotKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyAppHotKeys.m; path = MyHotKey/HotKey/MyAppHotKeys.m; sourceTree = "<group>"; };
+		E5834DBA1D60D2C2001926D0 /* MyWindowHotKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyWindowHotKeys.h; path = MyHotKey/HotKey/MyWindowHotKeys.h; sourceTree = "<group>"; };
+		E5834DBB1D60D2C2001926D0 /* MyWindowHotKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyWindowHotKeys.m; path = MyHotKey/HotKey/MyWindowHotKeys.m; sourceTree = "<group>"; };
+		E5834DBC1D60D2C2001926D0 /* WindowHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowHotKey.h; path = MyHotKey/HotKey/WindowHotKey.h; sourceTree = "<group>"; };
+		E5834DBD1D60D2C2001926D0 /* WindowHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowHotKey.m; path = MyHotKey/HotKey/WindowHotKey.m; sourceTree = "<group>"; };
+		E5834DC71D688892001926D0 /* JSONPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONPreference.h; path = MyHotKey/Preferences/sync/JSONPreference.h; sourceTree = "<group>"; };
+		E5834DC81D688892001926D0 /* JSONPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONPreference.m; path = MyHotKey/Preferences/sync/JSONPreference.m; sourceTree = "<group>"; };
+		E5834DCA1D68CC23001926D0 /* iCloudSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iCloudSync.h; path = MyHotKey/Preferences/sync/iCloudSync.h; sourceTree = "<group>"; };
+		E5834DCB1D68CC23001926D0 /* iCloudSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iCloudSync.m; path = MyHotKey/Preferences/sync/iCloudSync.m; sourceTree = "<group>"; };
+		E5834DCD1D68CFA3001926D0 /* CloudSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CloudSync.h; path = MyHotKey/Preferences/sync/CloudSync.h; sourceTree = "<group>"; };
+		E5834DCE1D696640001926D0 /* CloudSyncDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudSyncDelegate.h; path = MyHotKey/Preferences/sync/CloudSyncDelegate.h; sourceTree = "<group>"; };
+		E5834DCF1D69858B001926D0 /* MyError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyError.h; path = MyHotKey/Utils/MyError.h; sourceTree = "<group>"; };
+		E5834DD01D69858B001926D0 /* MyError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyError.m; path = MyHotKey/Utils/MyError.m; sourceTree = "<group>"; };
+		E5A341031D5DC73B00D5E376 /* AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppInfo.h; path = MyHotKey/AppUtils/AppInfo.h; sourceTree = "<group>"; };
+		E5A341041D5DC73B00D5E376 /* AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppInfo.m; path = MyHotKey/AppUtils/AppInfo.m; sourceTree = "<group>"; };
+		E5A341051D5DC73B00D5E376 /* AppUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppUtils.h; path = MyHotKey/AppUtils/AppUtils.h; sourceTree = "<group>"; };
+		E5A341061D5DC73B00D5E376 /* AppUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppUtils.m; path = MyHotKey/AppUtils/AppUtils.m; sourceTree = "<group>"; };
+		E5A3410F1D5DC84800D5E376 /* WindowGridsHotKeyPrefItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowGridsHotKeyPrefItem.h; path = MyHotKey/Preferences/WindowsPreference/WindowGridsHotKeyPrefItem.h; sourceTree = "<group>"; };
+		E5A341101D5DC84800D5E376 /* WindowGridsHotKeyPrefItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowGridsHotKeyPrefItem.m; path = MyHotKey/Preferences/WindowsPreference/WindowGridsHotKeyPrefItem.m; sourceTree = "<group>"; };
+		E5B954C41D6AE3E7005A534F /* GTLR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTLR.framework; path = Google/GTLR.framework; sourceTree = "<group>"; };
+		E5B954C81D6AE9D0005A534F /* GTLR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTLR.framework; path = Google/GTLR.framework; sourceTree = "<group>"; };
+		E5B954CB1D6AEA58005A534F /* GTLRDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDrive.h; path = Google/src/Drive/GTLRDrive.h; sourceTree = "<group>"; };
+		E5B954CC1D6AEA60005A534F /* GTLRDriveObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDriveObjects.h; path = Google/src/Drive/GTLRDriveObjects.h; sourceTree = "<group>"; };
+		E5B954CD1D6AEA68005A534F /* GTLRDriveQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDriveQuery.h; path = Google/src/Drive/GTLRDriveQuery.h; sourceTree = "<group>"; };
+		E5B954CE1D6AEA6E005A534F /* GTLRDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDriveService.h; path = Google/src/Drive/GTLRDriveService.h; sourceTree = "<group>"; };
+		E5B954D11D6AF360005A534F /* GoogleDriveSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleDriveSync.h; path = MyHotKey/Preferences/sync/GoogleDriveSync.h; sourceTree = "<group>"; };
+		E5B954D21D6AF360005A534F /* GoogleDriveSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleDriveSync.m; path = MyHotKey/Preferences/sync/GoogleDriveSync.m; sourceTree = "<group>"; };
+		E5D0EAA31D372AC70061E260 /* MyHotKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHotKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D0EAA61D372AC70061E260 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E5D0EAA71D372AC70061E260 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E5D0EAAA1D372AC70061E260 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5D0EAAC1D372AC70061E260 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5D0EAAF1D372AC70061E260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E5D0EAB11D372AC70061E260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D0EAB61D372AC80061E260 /* MyHotKeyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyHotKeyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D0EABA1D372AC80061E260 /* MyHotKeyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyHotKeyTests.m; sourceTree = "<group>"; };
+		E5D0EABC1D372AC80061E260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D0EAC11D372AC80061E260 /* MyHotKeyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyHotKeyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D0EAC51D372AC80061E260 /* MyHotKeyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyHotKeyUITests.m; sourceTree = "<group>"; };
+		E5D0EAC71D372AC80061E260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D0EAD71D372B8E0061E260 /* WindowList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowList.h; path = MyHotKey/WindowManager/WindowList.h; sourceTree = "<group>"; };
+		E5D0EAD81D372B8E0061E260 /* WindowList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowList.m; path = MyHotKey/WindowManager/WindowList.m; sourceTree = "<group>"; };
+		E5D0EAD91D372B8E0061E260 /* WindowListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowListData.h; path = MyHotKey/WindowManager/WindowListData.h; sourceTree = "<group>"; };
+		E5D0EADA1D372B8E0061E260 /* WindowListData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WindowListData.m; path = MyHotKey/WindowManager/WindowListData.m; sourceTree = "<group>"; };
+		E5D0EAE31D372BB70061E260 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = MyHotKey/Utils/Constants.h; sourceTree = "<group>"; };
+		E5D0EAE41D372BB70061E260 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = MyHotKey/Utils/Constants.m; sourceTree = "<group>"; };
+		E5D0EAE51D372BB70061E260 /* ScreenUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScreenUtils.h; path = MyHotKey/Utils/ScreenUtils.h; sourceTree = "<group>"; };
+		E5D0EAE61D372BB70061E260 /* ScreenUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScreenUtils.m; path = MyHotKey/Utils/ScreenUtils.m; sourceTree = "<group>"; };
+		E5D0EAE91D372BD70061E260 /* AXAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXAction.h; path = MyHotKey/AXUIUtils/AXAction.h; sourceTree = "<group>"; };
+		E5D0EAEA1D372BD70061E260 /* AXAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXAction.m; path = MyHotKey/AXUIUtils/AXAction.m; sourceTree = "<group>"; };
+		E5D0EAEB1D372BD70061E260 /* AXAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXAttribute.h; path = MyHotKey/AXUIUtils/AXAttribute.h; sourceTree = "<group>"; };
+		E5D0EAEC1D372BD70061E260 /* AXAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXAttribute.m; path = MyHotKey/AXUIUtils/AXAttribute.m; sourceTree = "<group>"; };
+		E5D0EAED1D372BD70061E260 /* AXElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXElement.h; path = MyHotKey/AXUIUtils/AXElement.h; sourceTree = "<group>"; };
+		E5D0EAEE1D372BD70061E260 /* AXElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXElement.m; path = MyHotKey/AXUIUtils/AXElement.m; sourceTree = "<group>"; };
+		E5D0EAEF1D372BD70061E260 /* AXMenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXMenuBar.h; path = MyHotKey/AXUIUtils/AXMenuBar.h; sourceTree = "<group>"; };
+		E5D0EAF01D372BD70061E260 /* AXMenuBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXMenuBar.m; path = MyHotKey/AXUIUtils/AXMenuBar.m; sourceTree = "<group>"; };
+		E5D0EAF11D372BD70061E260 /* AXUIApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXUIApp.h; path = MyHotKey/AXUIUtils/AXUIApp.h; sourceTree = "<group>"; };
+		E5D0EAF21D372BD70061E260 /* AXUIApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXUIApp.m; path = MyHotKey/AXUIUtils/AXUIApp.m; sourceTree = "<group>"; };
+		E5D0EAF31D372BD70061E260 /* AXUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXUIButton.h; path = MyHotKey/AXUIUtils/AXUIButton.h; sourceTree = "<group>"; };
+		E5D0EAF41D372BD70061E260 /* AXUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXUIButton.m; path = MyHotKey/AXUIUtils/AXUIButton.m; sourceTree = "<group>"; };
+		E5D0EAF51D372BD70061E260 /* AXUIMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXUIMenu.h; path = MyHotKey/AXUIUtils/AXUIMenu.h; sourceTree = "<group>"; };
+		E5D0EAF61D372BD70061E260 /* AXUIMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXUIMenu.m; path = MyHotKey/AXUIUtils/AXUIMenu.m; sourceTree = "<group>"; };
+		E5D0EAF71D372BD70061E260 /* AXUIWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXUIWindow.h; path = MyHotKey/AXUIUtils/AXUIWindow.h; sourceTree = "<group>"; };
+		E5D0EAF81D372BD70061E260 /* AXUIWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXUIWindow.m; path = MyHotKey/AXUIUtils/AXUIWindow.m; sourceTree = "<group>"; };
+		E5D3F7791D5C25FE00AB8DBB /* ApplicationPref.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ApplicationPref.xib; path = MyHotKey/Preferences/ApplicationPreference/ApplicationPref.xib; sourceTree = "<group>"; };
+		E5D3F77A1D5C25FE00AB8DBB /* UAppPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UAppPrefViewController.h; path = MyHotKey/Preferences/ApplicationPreference/UAppPrefViewController.h; sourceTree = "<group>"; };
+		E5D3F77B1D5C25FE00AB8DBB /* UAppPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UAppPrefViewController.m; path = MyHotKey/Preferences/ApplicationPreference/UAppPrefViewController.m; sourceTree = "<group>"; };
+		E5D883A91D6A208300205ADD /* MyHotKey.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyHotKey.entitlements; sourceTree = "<group>"; };
+		E5D883AE1D6C96D500205ADD /* SyncPreference.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SyncPreference.xib; path = MyHotKey/Preferences/sync/SyncPreference.xib; sourceTree = "<group>"; };
+		E5D883B01D6C988000205ADD /* USyncPrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = USyncPrefViewController.h; path = MyHotKey/Preferences/Sync/USyncPrefViewController.h; sourceTree = "<group>"; };
+		E5D883B11D6C988000205ADD /* USyncPrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = USyncPrefViewController.m; path = MyHotKey/Preferences/Sync/USyncPrefViewController.m; sourceTree = "<group>"; };
+		E5D883B31D6C9B3800205ADD /* GTLRDriveObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRDriveObjects.m; path = Google/src/Drive/GTLRDriveObjects.m; sourceTree = "<group>"; };
+		E5D883B41D6C9B3800205ADD /* GTLRDriveQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRDriveQuery.m; path = Google/src/Drive/GTLRDriveQuery.m; sourceTree = "<group>"; };
+		E5D883B51D6C9B3800205ADD /* GTLRDriveService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLRDriveService.m; path = Google/src/Drive/GTLRDriveService.m; sourceTree = "<group>"; };
+		E5D883B91D6DD95A00205ADD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5D0EAA01D372AC70061E260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D883BA1D6DD95A00205ADD /* WebKit.framework in Frameworks */,
+				E5B954C51D6AE3E7005A534F /* GTLR.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0EAB31D372AC80061E260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0EABE1D372AC80061E260 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E52ADD081D3A66A400431B7A /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				E5834DC61D688879001926D0 /* Sync */,
+				E5834D861D56D3B2001926D0 /* UHotKeyTextField.h */,
+				E5834D871D56D3B2001926D0 /* UHotKeyTextField.m */,
+				E5834D881D56D3B2001926D0 /* UHotKeyTextFieldDelegate.h */,
+				E5D3F7781D5C1BFF00AB8DBB /* ApplicationPreference */,
+				E52ADD141D3B4E0000431B7A /* WindowsPreference */,
+				E5834D9A1D56D575001926D0 /* UPreferencesWindowController.h */,
+				E5834D9B1D56D575001926D0 /* UPreferencesWindowController.m */,
+				E5834D851D56B2B7001926D0 /* UMessageDelegate.h */,
+				E52ADD091D3A66FA00431B7A /* Preferences.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		E52ADD141D3B4E0000431B7A /* WindowsPreference */ = {
+			isa = PBXGroup;
+			children = (
+				E5A3410F1D5DC84800D5E376 /* WindowGridsHotKeyPrefItem.h */,
+				E5A341101D5DC84800D5E376 /* WindowGridsHotKeyPrefItem.m */,
+				E5834D8A1D56D562001926D0 /* UWindowGridsHotKeyPrefViewController.h */,
+				E5834D8B1D56D562001926D0 /* UWindowGridsHotKeyPrefViewController.m */,
+				E5834D8C1D56D562001926D0 /* UWindowsPrefViewController.h */,
+				E5834D8D1D56D562001926D0 /* UWindowsPrefViewController.m */,
+				E5834D8E1D56D562001926D0 /* WindowGridsHotKeyPref.xib */,
+				E5834D911D56D562001926D0 /* WindowHotKeyGroup.h */,
+				E5834D921D56D562001926D0 /* WindowHotKeyGroup.m */,
+				E5834D931D56D562001926D0 /* WindowsPref.xib */,
+			);
+			name = WindowsPreference;
+			sourceTree = "<group>";
+		};
+		E5834DC61D688879001926D0 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				E5D883B01D6C988000205ADD /* USyncPrefViewController.h */,
+				E5D883B11D6C988000205ADD /* USyncPrefViewController.m */,
+				E5B954D11D6AF360005A534F /* GoogleDriveSync.h */,
+				E5B954D21D6AF360005A534F /* GoogleDriveSync.m */,
+				E5834DCE1D696640001926D0 /* CloudSyncDelegate.h */,
+				E5834DCA1D68CC23001926D0 /* iCloudSync.h */,
+				E5834DCB1D68CC23001926D0 /* iCloudSync.m */,
+				E5834DC71D688892001926D0 /* JSONPreference.h */,
+				E5834DC81D688892001926D0 /* JSONPreference.m */,
+				E5834DCD1D68CFA3001926D0 /* CloudSync.h */,
+				E5D883AE1D6C96D500205ADD /* SyncPreference.xib */,
+			);
+			name = Sync;
+			sourceTree = "<group>";
+		};
+		E5B954C61D6AE581005A534F /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				E5B954CA1D6AEA30005A534F /* Drive */,
+			);
+			name = Google;
+			sourceTree = "<group>";
+		};
+		E5B954CA1D6AEA30005A534F /* Drive */ = {
+			isa = PBXGroup;
+			children = (
+				E5D883B31D6C9B3800205ADD /* GTLRDriveObjects.m */,
+				E5D883B41D6C9B3800205ADD /* GTLRDriveQuery.m */,
+				E5D883B51D6C9B3800205ADD /* GTLRDriveService.m */,
+				E5B954CE1D6AEA6E005A534F /* GTLRDriveService.h */,
+				E5B954CD1D6AEA68005A534F /* GTLRDriveQuery.h */,
+				E5B954CC1D6AEA60005A534F /* GTLRDriveObjects.h */,
+				E5B954CB1D6AEA58005A534F /* GTLRDrive.h */,
+			);
+			name = Drive;
+			sourceTree = "<group>";
+		};
+		E5B954CF1D6AEA7D005A534F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5D883B91D6DD95A00205ADD /* WebKit.framework */,
+				E5B954C81D6AE9D0005A534F /* GTLR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5D0EA9A1D372AC70061E260 = {
+			isa = PBXGroup;
+			children = (
+				E5B954CF1D6AEA7D005A534F /* Frameworks */,
+				E5B954C61D6AE581005A534F /* Google */,
+				E5B954C41D6AE3E7005A534F /* GTLR.framework */,
+				E5D3F77E1D5D6B7E00AB8DBB /* AppUtils */,
+				E52ADD081D3A66A400431B7A /* Preferences */,
+				E5D0EAD61D372AEC0061E260 /* WindowManager */,
+				E5D0EAD51D372AE00061E260 /* HotKey */,
+				E5D0EAD41D372AD90061E260 /* Utils */,
+				E5D0EAD31D372ACE0061E260 /* AXUIUtils */,
+				E5D0EAA51D372AC70061E260 /* MyHotKey */,
+				E5D0EAB91D372AC80061E260 /* MyHotKeyTests */,
+				E5D0EAC41D372AC80061E260 /* MyHotKeyUITests */,
+				E5D0EAA41D372AC70061E260 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5D0EAA41D372AC70061E260 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0EAA31D372AC70061E260 /* MyHotKey.app */,
+				E5D0EAB61D372AC80061E260 /* MyHotKeyTests.xctest */,
+				E5D0EAC11D372AC80061E260 /* MyHotKeyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5D0EAA51D372AC70061E260 /* MyHotKey */ = {
+			isa = PBXGroup;
+			children = (
+				E5D883A91D6A208300205ADD /* MyHotKey.entitlements */,
+				E5D0EAA61D372AC70061E260 /* AppDelegate.h */,
+				E5D0EAA71D372AC70061E260 /* AppDelegate.m */,
+				E5D0EAAC1D372AC70061E260 /* Assets.xcassets */,
+				E5D0EAAE1D372AC70061E260 /* MainMenu.xib */,
+				E5D0EAB11D372AC70061E260 /* Info.plist */,
+				E5D0EAA91D372AC70061E260 /* Supporting Files */,
+			);
+			path = MyHotKey;
+			sourceTree = "<group>";
+		};
+		E5D0EAA91D372AC70061E260 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0EAAA1D372AC70061E260 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5D0EAB91D372AC80061E260 /* MyHotKeyTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0EABA1D372AC80061E260 /* MyHotKeyTests.m */,
+				E5D0EABC1D372AC80061E260 /* Info.plist */,
+			);
+			path = MyHotKeyTests;
+			sourceTree = "<group>";
+		};
+		E5D0EAC41D372AC80061E260 /* MyHotKeyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0EAC51D372AC80061E260 /* MyHotKeyUITests.m */,
+				E5D0EAC71D372AC80061E260 /* Info.plist */,
+			);
+			path = MyHotKeyUITests;
+			sourceTree = "<group>";
+		};
+		E5D0EAD31D372ACE0061E260 /* AXUIUtils */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0EAE91D372BD70061E260 /* AXAction.h */,
+				E5D0EAEA1D372BD70061E260 /* AXAction.m */,
+				E5D0EAEB1D372BD70061E260 /* AXAttribute.h */,
+				E5D0EAEC1D372BD70061E260 /* AXAttribute.m */,
+				E5D0EAED1D372BD70061E260 /* AXElement.h */,
+				E5D0EAEE1D372BD70061E260 /* AXElement.m */,
+				E5D0EAEF1D372BD70061E260 /* AXMenuBar.h */,
+				E5D0EAF01D372BD70061E260 /* AXMenuBar.m */,
+				E5D0EAF11D372BD70061E260 /* AXUIApp.h */,
+				E5D0EAF21D372BD70061E260 /* AXUIApp.m */,
+				E5D0EAF31D372BD70061E260 /* AXUIButton.h */,
+				E5D0EAF41D372BD70061E260 /* AXUIButton.m */,
+				E5D0EAF51D372BD70061E260 /* AXUIMenu.h */,
+				E5D0EAF61D372BD70061E260 /* AXUIMenu.m */,
+				E5D0EAF71D372BD70061E260 /* AXUIWindow.h */,
+				E5D0EAF81D372BD70061E260 /* AXUIWindow.m */,
+			);
+			name = AXUIUtils;
+			sourceTree = "<group>";
+		};
+		E5D0EAD41D372AD90061E260 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5834DCF1D69858B001926D0 /* MyError.h */,
+				E5834DD01D69858B001926D0 /* MyError.m */,
+				E5564B211D65844F004B53B1 /* PreferenceUtil.h */,
+				E5564B221D65844F004B53B1 /* PreferenceUtil.m */,
+				E5D0EAE31D372BB70061E260 /* Constants.h */,
+				E5D0EAE41D372BB70061E260 /* Constants.m */,
+				E5D0EAE51D372BB70061E260 /* ScreenUtils.h */,
+				E5D0EAE61D372BB70061E260 /* ScreenUtils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		E5D0EAD51D372AE00061E260 /* HotKey */ = {
+			isa = PBXGroup;
+			children = (
+				E5834DAF1D60D2C2001926D0 /* AppHotKey.h */,
+				E5834DB01D60D2C2001926D0 /* AppHotKey.m */,
+				E5834DB11D60D2C2001926D0 /* HotKey_protected.h */,
+				E5834DB21D60D2C2001926D0 /* HotKey.h */,
+				E5834DB31D60D2C2001926D0 /* HotKey.m */,
+				E5834DB41D60D2C2001926D0 /* HotKeyManager.h */,
+				E5834DB51D60D2C2001926D0 /* HotKeyManager.m */,
+				E5834DB61D60D2C2001926D0 /* HotKeyMap.h */,
+				E5834DB71D60D2C2001926D0 /* HotKeyMap.m */,
+				E5834DB81D60D2C2001926D0 /* MyAppHotKeys.h */,
+				E5834DB91D60D2C2001926D0 /* MyAppHotKeys.m */,
+				E5834DBA1D60D2C2001926D0 /* MyWindowHotKeys.h */,
+				E5834DBB1D60D2C2001926D0 /* MyWindowHotKeys.m */,
+				E5834DBC1D60D2C2001926D0 /* WindowHotKey.h */,
+				E5834DBD1D60D2C2001926D0 /* WindowHotKey.m */,
+			);
+			name = HotKey;
+			sourceTree = "<group>";
+		};
+		E5D0EAD61D372AEC0061E260 /* WindowManager */ = {
+			isa = PBXGroup;
+			children = (
+				E5D0EAD71D372B8E0061E260 /* WindowList.h */,
+				E5D0EAD81D372B8E0061E260 /* WindowList.m */,
+				E5D0EAD91D372B8E0061E260 /* WindowListData.h */,
+				E5D0EADA1D372B8E0061E260 /* WindowListData.m */,
+			);
+			name = WindowManager;
+			sourceTree = "<group>";
+		};
+		E5D3F7781D5C1BFF00AB8DBB /* ApplicationPreference */ = {
+			isa = PBXGroup;
+			children = (
+				E5834D9F1D5EFD49001926D0 /* UAddAppHotKeyDialog.h */,
+				E5834DA01D5EFD49001926D0 /* UAddAppHotKeyDialog.m */,
+				E5D3F7791D5C25FE00AB8DBB /* ApplicationPref.xib */,
+				E5D3F77A1D5C25FE00AB8DBB /* UAppPrefViewController.h */,
+				E5D3F77B1D5C25FE00AB8DBB /* UAppPrefViewController.m */,
+				E5834D9D1D5EEE7D001926D0 /* AddAppHotKeyDialog.xib */,
+			);
+			name = ApplicationPreference;
+			sourceTree = "<group>";
+		};
+		E5D3F77E1D5D6B7E00AB8DBB /* AppUtils */ = {
+			isa = PBXGroup;
+			children = (
+				E5A341031D5DC73B00D5E376 /* AppInfo.h */,
+				E5A341041D5DC73B00D5E376 /* AppInfo.m */,
+				E5A341051D5DC73B00D5E376 /* AppUtils.h */,
+				E5A341061D5DC73B00D5E376 /* AppUtils.m */,
+			);
+			name = AppUtils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5D0EAA21D372AC70061E260 /* MyHotKey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D0EACA1D372AC80061E260 /* Build configuration list for PBXNativeTarget "MyHotKey" */;
+			buildPhases = (
+				E5D0EA9F1D372AC70061E260 /* Sources */,
+				E5D0EAA01D372AC70061E260 /* Frameworks */,
+				E5D0EAA11D372AC70061E260 /* Resources */,
+				E5B954C71D6AE621005A534F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyHotKey;
+			productName = MyHotKey;
+			productReference = E5D0EAA31D372AC70061E260 /* MyHotKey.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5D0EAB51D372AC80061E260 /* MyHotKeyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D0EACD1D372AC80061E260 /* Build configuration list for PBXNativeTarget "MyHotKeyTests" */;
+			buildPhases = (
+				E5D0EAB21D372AC80061E260 /* Sources */,
+				E5D0EAB31D372AC80061E260 /* Frameworks */,
+				E5D0EAB41D372AC80061E260 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5D0EAB81D372AC80061E260 /* PBXTargetDependency */,
+			);
+			name = MyHotKeyTests;
+			productName = MyHotKeyTests;
+			productReference = E5D0EAB61D372AC80061E260 /* MyHotKeyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5D0EAC01D372AC80061E260 /* MyHotKeyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D0EAD01D372AC80061E260 /* Build configuration list for PBXNativeTarget "MyHotKeyUITests" */;
+			buildPhases = (
+				E5D0EABD1D372AC80061E260 /* Sources */,
+				E5D0EABE1D372AC80061E260 /* Frameworks */,
+				E5D0EABF1D372AC80061E260 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5D0EAC31D372AC80061E260 /* PBXTargetDependency */,
+			);
+			name = MyHotKeyUITests;
+			productName = MyHotKeyUITests;
+			productReference = E5D0EAC11D372AC80061E260 /* MyHotKeyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5D0EA9B1D372AC70061E260 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = chao;
+				TargetAttributes = {
+					E5D0EAA21D372AC70061E260 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = PN22YZ44T9;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					E5D0EAB51D372AC80061E260 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = E5D0EAA21D372AC70061E260;
+					};
+					E5D0EAC01D372AC80061E260 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = E5D0EAA21D372AC70061E260;
+					};
+				};
+			};
+			buildConfigurationList = E5D0EA9E1D372AC70061E260 /* Build configuration list for PBXProject "MyHotKey" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5D0EA9A1D372AC70061E260;
+			productRefGroup = E5D0EAA41D372AC70061E260 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5D0EAA21D372AC70061E260 /* MyHotKey */,
+				E5D0EAB51D372AC80061E260 /* MyHotKeyTests */,
+				E5D0EAC01D372AC80061E260 /* MyHotKeyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5D0EAA11D372AC70061E260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5834D961D56D562001926D0 /* WindowGridsHotKeyPref.xib in Resources */,
+				E5D0EAAD1D372AC70061E260 /* Assets.xcassets in Resources */,
+				E52ADD0B1D3A66FA00431B7A /* Preferences.xib in Resources */,
+				E5834D991D56D562001926D0 /* WindowsPref.xib in Resources */,
+				E5D0EAB01D372AC70061E260 /* MainMenu.xib in Resources */,
+				E5834D9E1D5EEE7D001926D0 /* AddAppHotKeyDialog.xib in Resources */,
+				E5D3F77C1D5C25FE00AB8DBB /* ApplicationPref.xib in Resources */,
+				E5D883AF1D6C96D500205ADD /* SyncPreference.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0EAB41D372AC80061E260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0EABF1D372AC80061E260 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5D0EA9F1D372AC70061E260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5B954D31D6AF360005A534F /* GoogleDriveSync.m in Sources */,
+				E5834DBF1D60D2C2001926D0 /* HotKey.m in Sources */,
+				E5D0EAFB1D372BD70061E260 /* AXElement.m in Sources */,
+				E5834DCC1D68CC23001926D0 /* iCloudSync.m in Sources */,
+				E5D0EAFC1D372BD70061E260 /* AXMenuBar.m in Sources */,
+				E5A341111D5DC84800D5E376 /* WindowGridsHotKeyPrefItem.m in Sources */,
+				E5D0EAFD1D372BD70061E260 /* AXUIApp.m in Sources */,
+				E5834DC01D60D2C2001926D0 /* HotKeyManager.m in Sources */,
+				E5834DC31D60D2C2001926D0 /* MyWindowHotKeys.m in Sources */,
+				E5D3F77D1D5C25FE00AB8DBB /* UAppPrefViewController.m in Sources */,
+				E5564B231D65844F004B53B1 /* PreferenceUtil.m in Sources */,
+				E5D883B71D6C9B3800205ADD /* GTLRDriveQuery.m in Sources */,
+				E5D0EAFE1D372BD70061E260 /* AXUIButton.m in Sources */,
+				E5D883B21D6C988000205ADD /* USyncPrefViewController.m in Sources */,
+				E5834D891D56D3B2001926D0 /* UHotKeyTextField.m in Sources */,
+				E5D0EAFA1D372BD70061E260 /* AXAttribute.m in Sources */,
+				E5D0EB001D372BD70061E260 /* AXUIWindow.m in Sources */,
+				E5D0EAFF1D372BD70061E260 /* AXUIMenu.m in Sources */,
+				E5D0EAE81D372BB70061E260 /* ScreenUtils.m in Sources */,
+				E5834DC11D60D2C2001926D0 /* HotKeyMap.m in Sources */,
+				E5834DA11D5EFD49001926D0 /* UAddAppHotKeyDialog.m in Sources */,
+				E5834DBE1D60D2C2001926D0 /* AppHotKey.m in Sources */,
+				E5834D951D56D562001926D0 /* UWindowsPrefViewController.m in Sources */,
+				E5834DD11D69858B001926D0 /* MyError.m in Sources */,
+				E5834D981D56D562001926D0 /* WindowHotKeyGroup.m in Sources */,
+				E5D883B81D6C9B3800205ADD /* GTLRDriveService.m in Sources */,
+				E5D0EAAB1D372AC70061E260 /* main.m in Sources */,
+				E5834DC41D60D2C2001926D0 /* WindowHotKey.m in Sources */,
+				E5D0EADC1D372B8E0061E260 /* WindowListData.m in Sources */,
+				E5834DC21D60D2C2001926D0 /* MyAppHotKeys.m in Sources */,
+				E5A341071D5DC73B00D5E376 /* AppInfo.m in Sources */,
+				E5834DC91D688892001926D0 /* JSONPreference.m in Sources */,
+				E5834D941D56D562001926D0 /* UWindowGridsHotKeyPrefViewController.m in Sources */,
+				E5D0EADB1D372B8E0061E260 /* WindowList.m in Sources */,
+				E5A341081D5DC73B00D5E376 /* AppUtils.m in Sources */,
+				E5834D9C1D56D575001926D0 /* UPreferencesWindowController.m in Sources */,
+				E5D883B61D6C9B3800205ADD /* GTLRDriveObjects.m in Sources */,
+				E5D0EAF91D372BD70061E260 /* AXAction.m in Sources */,
+				E5D0EAE71D372BB70061E260 /* Constants.m in Sources */,
+				E5D0EAA81D372AC70061E260 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0EAB21D372AC80061E260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D0EABB1D372AC80061E260 /* MyHotKeyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D0EABD1D372AC80061E260 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D0EAC61D372AC80061E260 /* MyHotKeyUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5D0EAB81D372AC80061E260 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5D0EAA21D372AC70061E260 /* MyHotKey */;
+			targetProxy = E5D0EAB71D372AC80061E260 /* PBXContainerItemProxy */;
+		};
+		E5D0EAC31D372AC80061E260 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5D0EAA21D372AC70061E260 /* MyHotKey */;
+			targetProxy = E5D0EAC21D372AC80061E260 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E52ADD091D3A66FA00431B7A /* Preferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E52ADD0A1D3A66FA00431B7A /* Base */,
+			);
+			name = Preferences.xib;
+			sourceTree = "<group>";
+		};
+		E5D0EAAE1D372AC70061E260 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5D0EAAF1D372AC70061E260 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5D0EAC81D372AC80061E260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E5D0EAC91D372AC80061E260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E5D0EACB1D372AC80061E260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyHotKey/MyHotKey.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Google/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Google",
+					"$(PROJECT_DIR)/MyHotKey/**",
+				);
+				INFOPLIST_FILE = MyHotKey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Google/**";
+				OTHER_CFLAGS = "-DGTLR_BUILT_AS_FRAMEWORK=1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschao.MyHotKey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		E5D0EACC1D372AC80061E260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyHotKey/MyHotKey.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.lproj *.gch *.xcode* *.xcassets (*) .DS_Store CVS .svn .git .hg *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Google/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Google",
+					"$(PROJECT_DIR)/MyHotKey/**",
+				);
+				INFOPLIST_FILE = MyHotKey/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Google/**";
+				OTHER_CFLAGS = "-DGTLR_BUILT_AS_FRAMEWORK=1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eschao.MyHotKey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		E5D0EACE1D372AC80061E260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyHotKeyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esc.chao.MyHotKeyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyHotKey.app/Contents/MacOS/MyHotKey";
+			};
+			name = Debug;
+		};
+		E5D0EACF1D372AC80061E260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyHotKeyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esc.chao.MyHotKeyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyHotKey.app/Contents/MacOS/MyHotKey";
+			};
+			name = Release;
+		};
+		E5D0EAD11D372AC80061E260 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyHotKeyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esc.chao.MyHotKeyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyHotKey;
+			};
+			name = Debug;
+		};
+		E5D0EAD21D372AC80061E260 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MyHotKeyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esc.chao.MyHotKeyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyHotKey;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5D0EA9E1D372AC70061E260 /* Build configuration list for PBXProject "MyHotKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D0EAC81D372AC80061E260 /* Debug */,
+				E5D0EAC91D372AC80061E260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D0EACA1D372AC80061E260 /* Build configuration list for PBXNativeTarget "MyHotKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D0EACB1D372AC80061E260 /* Debug */,
+				E5D0EACC1D372AC80061E260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D0EACD1D372AC80061E260 /* Build configuration list for PBXNativeTarget "MyHotKeyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D0EACE1D372AC80061E260 /* Debug */,
+				E5D0EACF1D372AC80061E260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D0EAD01D372AC80061E260 /* Build configuration list for PBXNativeTarget "MyHotKeyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D0EAD11D372AC80061E260 /* Debug */,
+				E5D0EAD21D372AC80061E260 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5D0EA9B1D372AC70061E260 /* Project object */;
+}
