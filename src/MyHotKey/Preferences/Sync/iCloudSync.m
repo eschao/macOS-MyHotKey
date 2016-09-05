@@ -79,23 +79,22 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
                         else {
                             SyncFlag flag = [self.jsonPreference
                                                 checkIfNeedSync];
-                            if (flag == SyncToCloud) {
+                            
+                            if (flag == kSyncToCloud) {
                                 [self syncToCloud];
                             }
-                            else if (flag == SyncFromCloud) {
+                            else if (flag == kSyncFromCloud) {
                                 [self syncFromCloud];
                             }
                             else if (self.delegate) {
-                                [self.delegate
-                                 completedAction:CompleteSyncAction error:nil];
+                                [self.delegate didSync:nil];
                             }
                         }
                     }
                     else if (err != nil) {
                         NSLog(@"Can't read JSON preference from iCloud");
                         if (self.delegate) {
-                            [self.delegate completedAction:SyncAction
-                                                     error:err];
+                            [self.delegate didSync:err];
                         }
                     }
                 }
@@ -103,8 +102,7 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
                     NSLog(@"Can't coordinate read JSON preference from iCloud: "
                           "%@", error);
                     if (self.delegate) {
-                        [self.delegate completedAction:SyncAction
-                                                 error:error];
+                        [self.delegate didSync:error];
                     }
                 }
             }];
@@ -116,7 +114,7 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
     NSData *data = [self.jsonPreference syncFromLocal:&error];
     if (error != nil) {
         if (self.delegate) {
-            [self.delegate completedAction:SyncAction error:error];
+            [self.delegate didSyncToCloud:error];
         }
         
         return;
@@ -142,16 +140,14 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
                     }
                                     
                     if (self.delegate) {
-                        [self.delegate completedAction:CompleteSyncAction
-                                                 error:err];
+                        [self.delegate didSyncToCloud:err];
                     }
             }];
                        
             if (error != nil) {
                 NSLog(@"Can't coordinate write to iCloud: %@", error);
                 if (self.delegate) {
-                    [self.delegate completedAction:CompleteSyncAction
-                                             error:error];
+                    [self.delegate didSyncToCloud:error];
                 }
             }
            });
@@ -164,7 +160,7 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
     }
     
     if (self.delegate) {    
-        [self.delegate completedAction:SyncAction error:error];
+        [self.delegate didSyncFromCloud:error];
     }
 }
 
@@ -219,12 +215,12 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
     self.ubiquitousURL = [[NSFileManager defaultManager]
                             URLForUbiquityContainerIdentifier:nil];
     if (self.delegate) {
-        CloudSyncAction action = SignOutAction;
-        if (self.ubiquitousURL != nil) {
-            action = SignInAction;
+        if (self.ubiquitousURL) {
+            [self.delegate didSignIn:nil];
         }
-        
-        [self.delegate completedAction:action error:nil];
+        else {
+            [self.delegate didSignOut:nil];
+        }
     }
 }
 

@@ -63,15 +63,15 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     double date = [userDefaults doubleForKey:UpdateDateKey];
 
-    SyncFlag flag = NoSync;
     if (date > self.cloudUpdateDate) {
-        flag = SyncToCloud;
+        return kSyncToCloud;
     }
     else if (date < self.cloudUpdateDate) {
-        flag = SyncFromCloud;
+        return kSyncFromCloud;
+    }
+    else {
+        return kNoSync;
     };
-
-    return flag;
 }
 
 - (BOOL)syncToLocal:(NSError **)errorPtr {
@@ -150,7 +150,6 @@
         if (errorPtr) {
             *errorPtr = error;
         }
-        return nil;
     }
     return data;
 }
@@ -181,7 +180,7 @@
 
     NSString *date = [self.jsonData objectForKey:UpdateDateKey];
     if (data == nil) {
-        NSLog(@"Can't get update value from json data!");
+        NSLog(@"Can't get update date value from json data!");
         return NO;
     }
 

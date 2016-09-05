@@ -137,85 +137,98 @@ const int GoogleAccountIndex = 1;
     }
 }
 
-- (void)completedAction:(CloudSyncAction)action
-                  error:(NSError *)error {
+- (void)didSignIn:(NSError *)error {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (action == SignInAction) {
-            [self.signInOutButton setEnabled:YES];
-            if (error == nil) {
-                [self.signInOutButton setTitle:@"Sign Out"];
-                [self.syncButton setEnabled:YES];
-            }
-            else {
-
-            }
-        }
-        else if (action == SignOutAction) {
-            [self.signInOutButton setEnabled:YES];
-            if (error == nil) {
-                [self.signInOutButton setTitle:@"Sign In"];
-                [self.syncButton setEnabled:NO];
-            }
-            else {
-
-            }
-        }
-        else if (action == SyncAction) {
+        [self.signInOutButton setEnabled:YES];
+        if (error) {
+            [self.signInOutButton setTitle:@"Sign Out"];
             [self.syncButton setEnabled:YES];
-            [self.syncProgressIndicator stopAnimation:self];
-
-            if (error != nil) {
-                [self.syncStatusTextField setStringValue:[NSString
-                        stringWithFormat:@"Can't sync preferences! Error: %@",
-                                                [error localizedDescription]]];
-            }
         }
-        else if (action == CompleteSyncAction) {
-            [self handleCompleteSyncAction:error];
+        else {
         }
     });
 }
 
-- (void)handleCompleteSyncAction:(NSError *)error {
-    [self.syncButton setEnabled:YES];
-    [self.syncProgressIndicator stopAnimation:self];
-
-    if (error != nil) {
-        [self.syncStatusTextField setStringValue:[NSString
-        stringWithFormat:@"Can't complete sync preferences! Error: %@",
-                            [error localizedDescription]]];
-    }
-    else {
-        // update sync time
-        NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        NSString *syncDate = [dateFormatter stringFromDate:[NSDate date]];
-        [self.lastSyncTextField setStringValue:[NSString
-                            stringWithFormat:@"Last update: %@", syncDate]];
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-
-        // update sync at start button state
-        [userDefaults setObject:syncDate forKey:LastSyncDateKey];
-        if ([userDefaults boolForKey:SyncAtStartKey]) {
-            [self.syncAtStartButton setState:NSOnState];
+- (void)didSignOut:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.signInOutButton setEnabled:YES];
+        if (error) {
+            [self.signInOutButton setTitle:@"Sign In"];
+            [self.syncButton setEnabled:NO];
         }
         else {
-            [self.syncAtStartButton setState:NSOffState];
-        }
 
-        // update cloud type
-        NSString *cloudType = [userDefaults objectForKey:SyncAccountTypeKey];
-        if (cloudType == nil) {
-            NSLog(@"Null sync cloud type after synced with cloud!");
         }
-        else if ([cloudType isEqualToString:@"iCloud"]) {
-            [self.accountComboBox selectItemAtIndex:iCloudAccountIndex];    
+    });
+}
+
+- (void)didSync:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.syncButton setEnabled:YES];
+        [self.syncProgressIndicator stopAnimation:self];
+
+        if (error) {
+            [self.syncStatusTextField setStringValue:[NSString
+                    stringWithFormat:@"Can't sync preferences! Error: %@",
+                                            [error localizedDescription]]];
         }
-        else if ([cloudType isEqualToString:@"Google Drive"]) {
-            [self.accountComboBox selectItemAtIndex:GoogleAccountIndex]; 
+    });
+}
+
+- (void)didSyncToCloud:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.syncButton setEnabled:YES];
+        [self.syncProgressIndicator stopAnimation:self];
+
+        if (error) {
+            [self.syncStatusTextField setStringValue:[NSString stringWithFormat:
+                              @"Can't sync preferences to cloud! Error: %@",
+                                            [error localizedDescription]]];
         }
-    }
-    
+    });
+}
+
+- (void)didSyncFromCloud:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.syncButton setEnabled:YES];
+        [self.syncProgressIndicator stopAnimation:self];
+
+        if (error) {
+            [self.syncStatusTextField setStringValue:[NSString stringWithFormat:
+                              @"Can't sync preferences from cloud! Error: %@",
+                                            [error localizedDescription]]];
+        }
+        else {
+            // update sync time
+            NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString *syncDate = [dateFormatter stringFromDate:[NSDate date]];
+            [self.lastSyncTextField setStringValue:[NSString
+                                stringWithFormat:@"Last update: %@", syncDate]];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+            // update sync at start button state
+            [userDefaults setObject:syncDate forKey:LastSyncDateKey];
+            if ([userDefaults boolForKey:SyncAtStartKey]) {
+                [self.syncAtStartButton setState:NSOnState];
+            }
+            else {
+                [self.syncAtStartButton setState:NSOffState];
+            }
+
+            // update cloud type
+            NSString *cloudType = [userDefaults objectForKey:SyncAccountTypeKey];
+            if (cloudType == nil) {
+                NSLog(@"Null sync cloud type after synced with cloud!");
+            }
+            else if ([cloudType isEqualToString:@"iCloud"]) {
+                [self.accountComboBox selectItemAtIndex:iCloudAccountIndex];    
+            }
+            else if ([cloudType isEqualToString:@"Google Drive"]) {
+                [self.accountComboBox selectItemAtIndex:GoogleAccountIndex]; 
+            }
+        }
+    });
 }
 
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification {

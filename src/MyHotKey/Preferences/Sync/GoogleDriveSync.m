@@ -32,7 +32,6 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
 
 - (instancetype)initWithWindow:(NSWindow *)window
                       delegate:(id)delegate {
-    
     if (self = [super init]) {
         self.window = window;
         self.delegate = delegate;
@@ -66,11 +65,11 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
 }
 
 - (void)setup {
-    
+    // nothing to do
 }
 
 - (void)tearDown {
-    
+   // nothing to do
 }
 
 - (BOOL)isSignedIn {
@@ -96,8 +95,8 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
 - (void)signOut {
     [GTMOAuth2WindowController removeAuthFromKeychainForName:kKeychainItemName];
     self.driveService.authorizer = nil;
-    if (self.delegate != nil) {
-        [self.delegate completedAction:SignOutAction error:nil];
+    if (self.delegate) {
+        [self.delegate didSignOut:nil];
     }
 }
 
@@ -118,8 +117,8 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
                 self.driveService.authorizer = auth;
             }
                           
-            if (self.delegate != nil) {
-                [self.delegate completedAction:SignInAction error:signInError];
+            if (self.delegate) {
+                [self.delegate didSignIn:signInError];
             }
         }];
 }
@@ -134,9 +133,8 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
                       if (callbackError != nil) {
                           NSLog(@"Google Drive: Failed to get files: %@",
                                 callbackError);
-                          if (self.delegate != nil) {
-                              [self.delegate completedAction:SyncAction
-                                                       error:callbackError];
+                          if (self.delegate) {
+                              [self.delegate didSync:callbackError];
                           }
                       }
                       else if (fileList != nil) {
@@ -145,9 +143,12 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
                           }
                           else {
                               GTLRDrive_File *file = [fileList.files
-                                                       objectAtIndex: 0];
+                                                       objectAtIndex:0];
                               [self updatePreferences:file];
                           }
+                      }
+                      else {
+                          NSLog(@"Can't query file list from Google drive!");
                       }
                   }];
 }
@@ -155,10 +156,10 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
 - (void)uploadPreferences {
     NSError *error;
     NSData *data = [self.jsonPreference syncFromLocal:&error];
-    if (error != nil) {
+    if (error) {
         NSLog(@"Can't upload preference to Google Drive");
-        if (self.delegate != nil) {
-            [self.delegate completedAction:SyncAction error:error];
+        if (self.delegate) {
+            [self.delegate didSyncToCloud:error];
         }
         return;
     }
@@ -175,9 +176,8 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
                   completionHandler:^(GTLRServiceTicket *callbackTicket,
                                       GTLRDrive_File *uploadedFile,
                                       NSError *callbackError) {
-                      if (self.delegate != nil) {
-                          [self.delegate completedAction:CompleteSyncAction
-                                                   error:callbackError];
+                      if (self.delegate) {
+                          [self.delegate didSyncToCloud:callbackError];
                       }
                   }];
 }
@@ -193,24 +193,28 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
                 NSError *error = nil;
                 if ([self.jsonPreference readJSONFromData:object.data]) {
                     SyncFlag flag = [self.jsonPreference checkIfNeedSync];
-                    if (flag == SyncFromCloud) {
+                    if (flag == kSyncFromCloud) {
                         [self.jsonPreference syncToLocal:&error];
-                        if (error != nil && self.delegate) {
-                            [self.delegate completedAction:SyncAction
-                                                     error:error];
+                        if (error != nil) {
+                            NSLog(@"Failed to sync from cloud: %@", error);
+                        }
+                        if (self.delegate) {
+                            [self.delegate didSyncFromCloud:error];
                         }
                     }
-                    else if (flag == SyncToCloud) {
+                    else if (flag == kSyncToCloud) {
                         [self syncToGoogleDrive:cloudPreferences];
                     }
                 }
                 else if (self.delegate) {
-                    [self.delegate completedAction:SyncAction
-                                             error:error];
+                    [self.delegate didSync:error];
                 }
             }
-            else if (self.delegate) {
-                [self.delegate completedAction:SyncAction error:callbackError];
+            else {
+                NSLog(@"Fialed to sync: %@", callbackError);
+                if (self.delegate) {
+                    [self.delegate didSync:callbackError];
+                }
             }
       }];
 }
@@ -218,9 +222,10 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
 - (void)syncToGoogleDrive:(GTLRDrive_File *)cloudPreference {
     NSError *error = nil;
     NSData *data = [self.jsonPreference syncFromLocal:&error];
-    if (error != nil) {
-        if (self.delegate != nil) {
-            [self.delegate completedAction:SyncAction error:error];
+    if (error) {
+        NSLog(@"Failed to sync to Google drive: %@", error);
+        if (self.delegate) {
+            [self.delegate didSyncToCloud:error];
         }
         return;
     }
@@ -237,9 +242,8 @@ NSString * const CloudPreferenceName = @"com.eschao.MyHotKey.preference";
                   completionHandler:^(GTLRServiceTicket *callbackTicket,
                                       GTLRDrive_File *uploadedFile,
                                       NSError *callbackError) {
-                        if (self.delegate != nil) {
-                            [self.delegate completedAction:CompleteSyncAction
-                                                     error:callbackError];
+                        if (self.delegate) {
+                            [self.delegate didSyncToCloud:callbackError];
                         }
                   }];
 }

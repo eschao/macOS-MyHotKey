@@ -8,9 +8,9 @@
 #import <Cocoa/Cocoa.h>
 
 typedef enum {
-    SyncToCloud     = 1,
-    SyncFromCloud   = -1,
-    NoSync          = 0,
+    kSyncToCloud     = 1,
+    kSyncFromCloud   = -1,
+    kNoSync          = 0,
 } SyncFlag;
 
 @interface JSONPreference : NSObject

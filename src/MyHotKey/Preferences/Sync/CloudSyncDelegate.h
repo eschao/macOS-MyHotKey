@@ -7,16 +7,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-typedef enum {
-    SignInAction = 0,
-    SignOutAction,
-    SyncAction,
-    CompleteSyncAction,
-}CloudSyncAction;
-
 @protocol CloudSyncDelegate
 
-- (void)completedAction:(CloudSyncAction)action
-                  error:(NSError *)error;
+- (void)didSignIn:(NSError *)error;
+- (void)didSignOut:(NSError *)error;
+- (void)didSync:(NSError *)error;
+- (void)didSyncToCloud:(NSError *)error;
+- (void)didSyncFromCloud:(NSError *)error;
 
 @end
