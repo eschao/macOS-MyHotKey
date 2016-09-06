@@ -109,12 +109,12 @@
     }
 
     if (cloudSyncPrefs == nil) {
-        [userDefaults removeObjectForKey:SyncAtStartKey];
+        [userDefaults removeObjectForKey:AutoSyncKey];
         [userDefaults removeObjectForKey:SyncAccountTypeKey];
     }
     else {
-        NSString *value = [cloudSyncPrefs objectForKey:SyncAtStartKey];
-        [userDefaults setBool:[value boolValue] forKey:SyncAtStartKey];
+        NSString *value = [cloudSyncPrefs objectForKey:AutoSyncKey];
+        [userDefaults setBool:[value boolValue] forKey:AutoSyncKey];
         [userDefaults setObject:[cloudSyncPrefs objectForKey:SyncAccountTypeKey]
                          forKey:SyncAccountTypeKey];
     }
@@ -136,7 +136,7 @@
     }
 
     NSDictionary *syncPrefs = @ {
-            SyncAtStartKey : [userDefaults objectForKey:SyncAtStartKey],
+               AutoSyncKey : [userDefaults objectForKey:AutoSyncKey],
         SyncAccountTypeKey : [userDefaults objectForKey:SyncAccountTypeKey]
     };
     [json setObject:syncPrefs forKey:CloudSyncKey];

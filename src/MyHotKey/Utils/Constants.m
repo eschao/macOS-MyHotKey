@@ -131,6 +131,6 @@ NSString * const HotKeyKey                  = @"hotkey";
 NSString * const IDKey                      = @"id";
 NSString * const NameKey                    = @"name";
 NSString * const CloudSyncKey               = @"CloudSync";
-NSString * const SyncAtStartKey             = @"syncAtStart";
+NSString * const AutoSyncKey                = @"autoSync";
 NSString * const SyncAccountTypeKey         = @"syncAccountType";
 NSString * const LastSyncDateKey            = @"lastSyncDate";

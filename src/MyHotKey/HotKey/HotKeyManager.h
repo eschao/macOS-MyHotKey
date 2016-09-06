@@ -41,5 +41,6 @@
 - (BOOL)isSystemHotKey:(NSUInteger)keyCode
                 keyMod:(NSUInteger)keyMod;
 - (NSArray *)getAllHotKeys;
+- (void)unbindAll;
 
 @end

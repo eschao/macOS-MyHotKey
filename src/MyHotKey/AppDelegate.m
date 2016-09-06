@@ -10,8 +10,8 @@
 #import "HotKey/MyWindowHotKeys.h"
 #import "HotKey/MyAppHotKeys.h"
 #import "Preferences/UPreferencesWindowController.h"
+#import "Preferences/Sync/CloudSyncHelper.h"
 #import "Utils/Constants.h"
-#import "Utils/PreferenceUtil.h"
 
 @interface AppDelegate ()
 
@@ -29,8 +29,8 @@
     self.prefWindowCotnroller = [[UPreferencesWindowController alloc]
                                     initWithTitle:@"Preferences"];
     [self setupStatusMenu];
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:SyncAtStartKey]) {
-        [PreferenceUtil cloudSync];
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:AutoSyncKey]) {
+        [[CloudSyncHelper sharedHelper] sync];
     }
 }
 

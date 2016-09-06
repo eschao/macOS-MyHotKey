@@ -12,12 +12,10 @@
 
 @interface PreferenceUtil : NSObject
 
-//+ (BOOL)saveWindowHotKey:(WindowHotKey *)hotKey;
 + (BOOL)saveMyAppHotKeys;
 + (BOOL)saveMyWindowHotKeys;
-+ (BOOL)saveSyncPreferences:(BOOL)syncAtStart
++ (BOOL)saveSyncPreferences:(BOOL)autoSync
                   cloudType:(NSString *)cloudType;
-+ (void)registerDefaultHotKeys;
-+ (void)cloudSync;
++ (void)registerDefault;
 
 @end

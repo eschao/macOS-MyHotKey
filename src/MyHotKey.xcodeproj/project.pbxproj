@@ -34,6 +34,7 @@
 		E5B954C51D6AE3E7005A534F /* GTLR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B954C41D6AE3E7005A534F /* GTLR.framework */; };
 		E5B954C91D6AE9D0005A534F /* GTLR.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E5B954C81D6AE9D0005A534F /* GTLR.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5B954D31D6AF360005A534F /* GoogleDriveSync.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B954D21D6AF360005A534F /* GoogleDriveSync.m */; };
+		E5C639BC1D7E9FBF009BD22F /* CloudSyncHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C639BB1D7E9FBF009BD22F /* CloudSyncHelper.m */; };
 		E5D0EAA81D372AC70061E260 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAA71D372AC70061E260 /* AppDelegate.m */; };
 		E5D0EAAB1D372AC70061E260 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D0EAAA1D372AC70061E260 /* main.m */; };
 		E5D0EAAD1D372AC70061E260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D0EAAC1D372AC70061E260 /* Assets.xcassets */; };
@@ -150,6 +151,8 @@
 		E5B954CE1D6AEA6E005A534F /* GTLRDriveService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLRDriveService.h; path = Google/src/Drive/GTLRDriveService.h; sourceTree = "<group>"; };
 		E5B954D11D6AF360005A534F /* GoogleDriveSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleDriveSync.h; path = MyHotKey/Preferences/sync/GoogleDriveSync.h; sourceTree = "<group>"; };
 		E5B954D21D6AF360005A534F /* GoogleDriveSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleDriveSync.m; path = MyHotKey/Preferences/sync/GoogleDriveSync.m; sourceTree = "<group>"; };
+		E5C639BA1D7E9FBF009BD22F /* CloudSyncHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudSyncHelper.h; path = MyHotKey/Preferences/Sync/CloudSyncHelper.h; sourceTree = "<group>"; };
+		E5C639BB1D7E9FBF009BD22F /* CloudSyncHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CloudSyncHelper.m; path = MyHotKey/Preferences/Sync/CloudSyncHelper.m; sourceTree = "<group>"; };
 		E5D0EAA31D372AC70061E260 /* MyHotKey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHotKey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D0EAA61D372AC70061E260 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E5D0EAA71D372AC70061E260 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 		E5834DC61D688879001926D0 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
+				E5C639BA1D7E9FBF009BD22F /* CloudSyncHelper.h */,
+				E5C639BB1D7E9FBF009BD22F /* CloudSyncHelper.m */,
 				E5D883B01D6C988000205ADD /* USyncPrefViewController.h */,
 				E5D883B11D6C988000205ADD /* USyncPrefViewController.m */,
 				E5B954D11D6AF360005A534F /* GoogleDriveSync.h */,
@@ -642,6 +647,7 @@
 				E5834DD11D69858B001926D0 /* MyError.m in Sources */,
 				E5834D981D56D562001926D0 /* WindowHotKeyGroup.m in Sources */,
 				E5D883B81D6C9B3800205ADD /* GTLRDriveService.m in Sources */,
+				E5C639BC1D7E9FBF009BD22F /* CloudSyncHelper.m in Sources */,
 				E5D0EAAB1D372AC70061E260 /* main.m in Sources */,
 				E5834DC41D60D2C2001926D0 /* WindowHotKey.m in Sources */,
 				E5D0EADC1D372B8E0061E260 /* WindowListData.m in Sources */,

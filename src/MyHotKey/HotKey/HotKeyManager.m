@@ -140,6 +140,17 @@ static OSStatus hotKeyHandler(EventHandlerCallRef handler,
     return NO;
 }
 
+- (void)unbindAll {
+    NSArray *allHotKeys = [self.hotKeyMap allValues];
+    for (HotKey *hotKey in allHotKeys) {
+        if (![hotKey unregister]) {
+            NSLog(@"Unbind all: can't unregister hot key: %@", hotKey); 
+        }
+    }
+
+    [self.hotKeyMap removeAllObjects];
+}
+
 - (void)dispatch:(NSNumber *)hotKeyID {
     HotKey *hotKey = [self.hotKeyMap objectForKey:hotKeyID];
     if (hotKey) {

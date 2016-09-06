@@ -26,5 +26,9 @@
 - (NSArray *)getMyAppHotKeys;
 - (NSDictionary *)getInstalledApps;
 - (NSMutableDictionary *)getInstalledAppsWithoutHotKey;
+- (void)reloadFromPrefs;
+- (void)addReloadObserver:(id)observer
+                 selector:(SEL)observerSelector;
+- (void)removeReloadObserver; 
 
 @end

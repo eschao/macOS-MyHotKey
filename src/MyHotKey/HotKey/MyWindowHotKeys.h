@@ -43,5 +43,9 @@
 + (MyWindowHotKeys *)sharedHotKeys;
 
 - (void)registerAll;
+- (void)reloadFromPrefs;
+- (void)addReloadObserver:(id)observer
+                 selector:(SEL)selector;
+- (void)removeReloadObserver;
 
 @end

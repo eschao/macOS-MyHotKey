@@ -176,7 +176,7 @@ FOUNDATION_EXPORT NSString * const HotKeyKey;
 FOUNDATION_EXPORT NSString * const IDKey;
 FOUNDATION_EXPORT NSString * const NameKey;
 FOUNDATION_EXPORT NSString * const CloudSyncKey;
-FOUNDATION_EXPORT NSString * const SyncAtStartKey;
+FOUNDATION_EXPORT NSString * const AutoSyncKey;
 FOUNDATION_EXPORT NSString * const SyncAccountTypeKey;
 FOUNDATION_EXPORT NSString * const LastSyncDateKey;
 

@@ -17,6 +17,13 @@
 static MyWindowHotKeys    *_sharedHotKeys = nil;    
 static dispatch_once_t  _onceToken;
 
+@interface MyWindowHotKeys()
+
+@property id  observer;
+@property SEL observerSelector;
+
+@end
+
 @implementation MyWindowHotKeys
 
 + (instancetype)sharedHotKeys {
@@ -33,9 +40,11 @@ static dispatch_once_t  _onceToken;
         NSDictionary *hotKeys = [[NSUserDefaults standardUserDefaults]
                                   objectForKey:MyWindowHotKeysKey];
         if (hotKeys == nil || hotKeys.count < 1) {
-            [PreferenceUtil registerDefaultHotKeys];
+            [PreferenceUtil registerDefault];
         }
-        
+
+        self.observer = nil;
+        self.observerSelector = nil;
         [self defaultHotKeys];
     }
 
@@ -229,6 +238,26 @@ static dispatch_once_t  _onceToken;
     }
 
     return NO;
+}
+
+- (void)addReloadObserver:(id)observer
+                 selector:(SEL)observerSelector {
+    self.observer = observer;
+    self.observerSelector = observerSelector;
+}
+
+- (void)removeReloadObserver {
+    self.observer = nil;
+    self.observerSelector = nil;
+}
+
+- (void)reloadFromPrefs {
+    [self defaultHotKeys];
+    [self registerAll];
+
+    if (self.observer != nil && self.observerSelector != nil) {
+        [self.observer performSelector:self.observerSelector];
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////

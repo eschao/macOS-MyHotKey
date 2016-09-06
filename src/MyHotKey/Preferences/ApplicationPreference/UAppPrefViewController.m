@@ -30,6 +30,9 @@
     if (self = [super initWithNibName:@"ApplicationPref" bundle:nil]) {
         self.appsArray = [[NSMutableArray alloc] init];
         self.isChanged = NO;
+        [[MyAppHotKeys sharedHotKeys]
+            addReloadObserver:self
+                     selector:@selector(notifiedHotKeysAreReloaded)];
     }
 
     return self;
@@ -61,6 +64,10 @@
         [PreferenceUtil saveMyAppHotKeys];
         self.isChanged = NO;
     }
+}
+
+- (void)notifiedHotKeysAreReloaded {
+    [self.tableView reloadData];
 }
 
 - (IBAction)onAdd:(id)sender {

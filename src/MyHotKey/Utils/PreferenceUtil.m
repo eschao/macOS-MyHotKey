@@ -64,12 +64,12 @@
     return YES;
 }
 
-+ (BOOL)saveSyncPreferences:(BOOL)syncAtStart
++ (BOOL)saveSyncPreferences:(BOOL)autoSync
                   cloudType:(NSString *)cloudType {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setDouble:[[NSDate date] timeIntervalSince1970]
                      forKey:UpdateDateKey];
-    [userDefaults setBool:syncAtStart forKey:SyncAtStartKey];
+    [userDefaults setBool:autoSync forKey:AutoSyncKey];
 
     if (cloudType != nil) {
         [userDefaults setObject:cloudType forKey:SyncAccountTypeKey];
@@ -77,7 +77,7 @@
     return YES;
 }
 
-+ (void)registerDefaultHotKeys {
++ (void)registerDefault {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     NSDictionary *hotKeys = @{v2GridsLeftName : @{
@@ -168,32 +168,12 @@
                                     HotKeyKey : centerWinHKey,
                                     EnabledKey : @"YES"
                                 } };
-    NSString *date = [NSString stringWithFormat:@"%f",
-                      [[NSDate date] timeIntervalSince1970]];
     NSDictionary *defaults = @{
-                    UpdateDateKey : date,
-                    MyWindowHotKeysKey : hotKeys};
+                    UpdateDateKey : @"0.0",
+                    MyWindowHotKeysKey : hotKeys,
+                    AutoSyncKey : @"true",
+                    SyncAccountTypeKey : @"iCloud"};
     [userDefaults registerDefaults:defaults];
-}
-
-+ (void)cloudSync {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    id<CloudSync> syncDelegate = nil;
-    NSString *accountType = [userDefaults objectForKey:SyncAccountTypeKey];
-    if (accountType == nil) {
-        
-    }
-    else if ([accountType isEqualToString:@"iCloud"]) {
-        syncDelegate = [[iCloudSync alloc] initWithDelegate:nil];
-    }
-    else if ([accountType isEqualToString:@"Google Drive"]) {
-        syncDelegate = [[GoogleDriveSync alloc] initWithWindow:nil
-                                                      delegate:self];
-    }
-
-    if (syncDelegate != nil && [syncDelegate isSignedIn]) {
-        [syncDelegate sync];
-    }
 }
 
 @end

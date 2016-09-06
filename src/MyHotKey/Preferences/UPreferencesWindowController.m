@@ -10,7 +10,7 @@
 #import "WindowsPreference/UWindowsPrefViewController.h"
 #import "ApplicationPreference/UAppPrefViewController.h"
 #import "Sync/USyncPrefViewController.h"
-#import "../Utils/PreferenceUtil.h"
+#import "Sync/CloudSyncHelper.h"
 
 @interface UPreferencesWindowController()
 
@@ -47,7 +47,7 @@
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
-    [PreferenceUtil cloudSync];
+    [[CloudSyncHelper sharedHelper] sync];
 }
 
 - (void)initTabView {

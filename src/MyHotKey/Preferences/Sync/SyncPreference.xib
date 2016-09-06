@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -8,9 +8,9 @@
         <customObject id="-2" userLabel="File's Owner" customClass="USyncPrefViewController">
             <connections>
                 <outlet property="accountComboBox" destination="ose-pO-7eu" id="RgI-DA-wPC"/>
+                <outlet property="autoSyncButton" destination="DIK-52-QrY" id="lpM-m9-nE0"/>
                 <outlet property="lastSyncTextField" destination="2Qz-7N-Vr8" id="l3V-qq-yCA"/>
                 <outlet property="signInOutButton" destination="8Q7-RY-Jh8" id="qf2-2E-aVn"/>
-                <outlet property="syncAtStartButton" destination="DIK-52-QrY" id="2hY-Tr-9Dp"/>
                 <outlet property="syncButton" destination="rQW-bL-YXU" id="1ao-w0-dz8"/>
                 <outlet property="syncProgressIndicator" destination="FNe-Qb-VKO" id="dIL-rK-oFG"/>
                 <outlet property="syncStatusTextField" destination="mSM-02-map" id="2T1-SO-47g"/>

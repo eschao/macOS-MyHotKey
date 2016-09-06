@@ -35,6 +35,9 @@
         self.hotKeySettings = [[NSMutableArray alloc] init];
         self.messageDelegate = delegate;
         self.isChanged = NO;
+        [[MyWindowHotKeys sharedHotKeys]
+            addReloadObserver:self
+                     selector:@selector(notifiedHotKeysAreReloaded)];
     } 
 
     return self;
@@ -71,7 +74,12 @@
         NSLog(@"Can not support window grids type: %ld", type);
     }
 
+    self.type = type;
     [self.tableView reloadData];
+}
+
+- (void)notifiedHotKeysAreReloaded {
+    [self reloadData:self.type]; 
 }
 
 - (void)load2WindowGridsHotKeys {

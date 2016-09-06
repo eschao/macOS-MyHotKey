@@ -21,6 +21,8 @@ static dispatch_once_t  _onceToken;
 
 @property (nonatomic, strong) NSMutableArray *appHotKeys;
 @property (nonatomic, strong) NSMutableDictionary *installedApps;
+@property id observer;
+@property SEL observerSelector;
 
 @end
 
@@ -105,6 +107,25 @@ static dispatch_once_t  _onceToken;
                   appHotKey.appInfo.appName);
         }        
     } 
+}
+
+- (void)addReloadObserver:(id)observer
+                 selector:(SEL)observerSelector {
+    self.observer = observer;
+    self.observerSelector = observerSelector;
+}
+
+- (void)removeReloadObserver {
+    self.observer = nil;
+    self.observerSelector = nil;
+}
+
+- (void)reloadFromPrefs {
+    [self registerAll];
+
+    if (self.observer && self.observerSelector) {
+        [self.observer perform:self.observerSelector];
+    }
 }
 
 - (AppHotKey *)appHotKeyAtIndex:(NSInteger)index {

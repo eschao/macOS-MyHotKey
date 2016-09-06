@@ -10,6 +10,9 @@
 #import "iCloudSync.h"
 #import "../../Utils/Constants.h"
 #import "../../Utils/PreferenceUtil.h"
+#import "../../HotKey/MyAppHotKeys.h"
+#import "../../HotKey/MyWindowHotKeys.h"
+#import "../../HotKey/HotKeyManager.h"
 
 const int iCloudAccountIndex = 0;
 const int GoogleAccountIndex = 1;
@@ -18,7 +21,7 @@ const int GoogleAccountIndex = 1;
 
 @property (strong) id<CloudSync> syncDelegate;
 @property (weak) IBOutlet NSComboBox *accountComboBox;
-@property (weak) IBOutlet NSButton *syncAtStartButton;
+@property (weak) IBOutlet NSButton *autoSyncButton;
 @property (weak) IBOutlet NSTextField *lastSyncTextField;
 @property (weak) IBOutlet NSTextField *syncStatusTextField;
 @property (weak) IBOutlet NSButton *signInOutButton;
@@ -69,11 +72,11 @@ const int GoogleAccountIndex = 1;
     }
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if ([userDefaults boolForKey:SyncAtStartKey]) {
-        [self.syncAtStartButton setState:NSOnState];
+    if ([userDefaults boolForKey:AutoSyncKey]) {
+        [self.autoSyncButton setState:NSOnState];
     }
     else {
-        [self.syncAtStartButton setState:NSOffState];
+        [self.autoSyncButton setState:NSOffState];
     }
     
     NSString *lastSyncDate = [NSString stringWithFormat:@"Last update: %@",
@@ -87,7 +90,7 @@ const int GoogleAccountIndex = 1;
     }
 
     if (self.isDataChanged) {
-        BOOL isOn = [self.syncAtStartButton state] == NSOnState;
+        BOOL isOn = [self.autoSyncButton state] == NSOnState;
         NSString *cloudType = nil;
         
         if (self.accountComboBox.indexOfSelectedItem == iCloudAccountIndex) {
@@ -131,8 +134,8 @@ const int GoogleAccountIndex = 1;
 
 - (IBAction)onSyncAtStart:(id)sender {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL isOn = [self.syncAtStartButton state] == NSOnState;
-    if ([userDefaults boolForKey:SyncAtStartKey] != isOn) {
+    BOOL isOn = [self.autoSyncButton state] == NSOnState;
+    if ([userDefaults boolForKey:AutoSyncKey] != isOn) {
         self.isDataChanged = YES;
     }
 }
@@ -209,11 +212,11 @@ const int GoogleAccountIndex = 1;
 
             // update sync at start button state
             [userDefaults setObject:syncDate forKey:LastSyncDateKey];
-            if ([userDefaults boolForKey:SyncAtStartKey]) {
-                [self.syncAtStartButton setState:NSOnState];
+            if ([userDefaults boolForKey:AutoSyncKey]) {
+                [self.autoSyncButton setState:NSOnState];
             }
             else {
-                [self.syncAtStartButton setState:NSOffState];
+                [self.autoSyncButton setState:NSOffState];
             }
 
             // update cloud type
@@ -227,6 +230,11 @@ const int GoogleAccountIndex = 1;
             else if ([cloudType isEqualToString:@"Google Drive"]) {
                 [self.accountComboBox selectItemAtIndex:GoogleAccountIndex]; 
             }
+
+            // reload App hot keys
+            [[HotKeyManager sharedManager] unbindAll];
+            [[MyAppHotKeys sharedHotKeys] reloadFromPrefs];
+            [[MyWindowHotKeys sharedHotKeys] reloadFromPrefs];
         }
     });
 }

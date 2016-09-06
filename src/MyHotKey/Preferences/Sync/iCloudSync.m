@@ -7,7 +7,7 @@
 
 #import "iCloudSync.h"
 #import "JSONPreference.h"
-#import "Constants.h"
+#import "../../Utils/Constants.h"
 
 NSString * const QUERY_STMT = @"%K LIKE '*'";
 
@@ -62,41 +62,7 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
                                      error:&error
                                 byAccessor:^(NSURL *newURL) {
                 if (error == nil) {
-                    NSFileManager *fileMgr = [[NSFileManager alloc] init];
-                    NSError *err = nil;
-                    [fileMgr removeItemAtURL:localURL error:nil];
-                    
-                    if (![fileMgr fileExistsAtPath:[iCloudURL path]]) {
-                        [self syncToCloud];
-                    }
-                    else if ([fileMgr copyItemAtURL:iCloudURL
-                                         toURL:localURL
-                                         error:&err]) {
-                        if (![self.jsonPreference readJSONWithURL:localURL]) {
-                            NSLog(@"Failed to read JSON data from temp file");
-                            [self syncToCloud];
-                        }
-                        else {
-                            SyncFlag flag = [self.jsonPreference
-                                                checkIfNeedSync];
-                            
-                            if (flag == kSyncToCloud) {
-                                [self syncToCloud];
-                            }
-                            else if (flag == kSyncFromCloud) {
-                                [self syncFromCloud];
-                            }
-                            else if (self.delegate) {
-                                [self.delegate didSync:nil];
-                            }
-                        }
-                    }
-                    else if (err != nil) {
-                        NSLog(@"Can't read JSON preference from iCloud");
-                        if (self.delegate) {
-                            [self.delegate didSync:err];
-                        }
-                    }
+                    [self checkCloudAndSync:localURL iCloudURL:iCloudURL];
                 }
                 else {
                     NSLog(@"Can't coordinate read JSON preference from iCloud: "
@@ -107,6 +73,45 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
                 }
             }];
         });
+}
+
+- (void)checkCloudAndSync:(NSURL *)localURL
+                iCloudURL:(NSURL *)iCloudURL {
+    NSFileManager *fileMgr = [[NSFileManager alloc] init];
+    NSError *error = nil;
+    [fileMgr removeItemAtURL:localURL error:nil];
+
+    if (![fileMgr fileExistsAtPath:[iCloudURL path]]) {
+        [self syncToCloud];
+    }
+    else if ([fileMgr copyItemAtURL:iCloudURL
+                                toURL:localURL
+                                error:&error]) {
+        if (![self.jsonPreference readJSONWithURL:localURL]) {
+            NSLog(@"Failed to read JSON data from temp file");
+            [self syncToCloud];
+        }
+        else {
+            SyncFlag flag = [self.jsonPreference
+                                checkIfNeedSync];
+
+            if (flag == kSyncToCloud) {
+                [self syncToCloud];
+            }
+            else if (flag == kSyncFromCloud) {
+                [self syncFromCloud];
+            }
+            else if (self.delegate) {
+                [self.delegate didSync:nil];
+            }
+        }
+    }
+    else if (error != nil) {
+        NSLog(@"Can't read JSON preference from iCloud");
+        if (self.delegate) {
+            [self.delegate didSync:error];
+        }
+    }
 }
 
 - (void)syncToCloud {
@@ -167,11 +172,7 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
 - (BOOL)isSignedIn {
     self.ubiquitousURL = [[NSFileManager defaultManager]
                              URLForUbiquityContainerIdentifier:nil];
-    if (self.ubiquitousURL == nil) {
-        return NO;
-    }
-    
-    return YES;
+    return self.ubiquitousURL != nil;
 }
 
 - (void)signIn {
