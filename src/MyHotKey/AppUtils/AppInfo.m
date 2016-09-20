@@ -80,7 +80,7 @@
 
 - (BOOL)launch {
     if (self.isInstalled) {
-        return [[NSWorkspace sharedWorkspace] launchApplication:self.appName];
+        return [[NSWorkspace sharedWorkspace] launchApplication:self.appUrl];
     }
     else {
         NSLog(@"Application %@ is not installed!", self.appName);
