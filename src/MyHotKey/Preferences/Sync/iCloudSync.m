@@ -92,8 +92,7 @@ NSString * const QUERY_STMT = @"%K LIKE '*'";
             [self syncToCloud];
         }
         else {
-            SyncFlag flag = [self.jsonPreference
-                                checkIfNeedSync];
+            SyncFlag flag = [self.jsonPreference checkIfNeedSync];
 
             if (flag == kSyncToCloud) {
                 [self syncToCloud];

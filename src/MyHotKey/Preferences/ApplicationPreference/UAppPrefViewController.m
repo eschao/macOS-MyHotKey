@@ -154,8 +154,10 @@
         field.hotKey = item;
         field.hotKeyFieldDelegate = self;
         [field setUMessageDelegate:self];
-        [field setStringValue:[item hotKey2String]];
+        NSString *s = [item hotKey2String];
+        [field setStringValue:s];
 
+        /*
         if (item.appInfo.isInstalled) {
             [cell textField].textColor = [NSColor blackColor];
             [[cell textField] setEnabled: YES];
@@ -163,7 +165,7 @@
         else {
             [cell textField].textColor = [NSColor grayColor];
             [[cell textField] setEnabled: NO];
-        }
+        }*/
     }
     return cell;
 }

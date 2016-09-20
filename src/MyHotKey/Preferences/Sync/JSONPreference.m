@@ -135,9 +135,17 @@
         [json setObject:myAppHotKeys forKey:MyAppHotKeysKey];
     }
 
+    NSString *autoSyncValue = [userDefaults objectForKey:AutoSyncKey];
+    if (autoSyncValue == nil) {
+        autoSyncValue = @"";
+    }
+    NSString *syncAccountType = [userDefaults objectForKey:SyncAccountTypeKey];
+    if (syncAccountType == nil) {
+        syncAccountType = @"";
+    }
     NSDictionary *syncPrefs = @ {
-               AutoSyncKey : [userDefaults objectForKey:AutoSyncKey],
-        SyncAccountTypeKey : [userDefaults objectForKey:SyncAccountTypeKey]
+               AutoSyncKey : autoSyncValue,
+        SyncAccountTypeKey : syncAccountType
     };
     [json setObject:syncPrefs forKey:CloudSyncKey];
 
