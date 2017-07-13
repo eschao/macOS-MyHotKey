@@ -1,17 +1,15 @@
 //
-//  MyError.h
+//	MyError.h
 //
-//  Created by chao on 8/21/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 8/21/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
 FOUNDATION_EXPORT NSString * const MyDomain;
 
-typedef enum {
-    InValidUpdateDate = 0,
-} MyErrorCode;
+typedef enum { InValidUpdateDate = 0, } MyErrorCode;
 
 @interface MyError : NSObject
 

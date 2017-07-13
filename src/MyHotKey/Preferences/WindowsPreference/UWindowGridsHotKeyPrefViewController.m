@@ -171,6 +171,9 @@
     [self.hotKeySettings addObject:[[WindowGridsHotKeyPrefItem alloc]
                                        initWith:myHotKeys.centerWindow
                                            icon:nil]];
+		[self.hotKeySettings addObject:[[WindowGridsHotKeyPrefItem alloc]
+																		initWith:myHotKeys.switchWindow
+																		icon:nil]];
 }
 
 - (void)restoreDefaultHotKeys {

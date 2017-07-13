@@ -1,8 +1,8 @@
 //
-//  AppHotKey.h
+//	AppHotKey.h
 //
-//  Created by chao on 8/14/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 8/14/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "HotKey.h"
@@ -17,7 +17,7 @@
                     keyCode:(NSUInteger)keyCode
                      keyMod:(NSUInteger)keyMod
                      target:(id)target
-                     action:(SEL)action; 
+                     action:(SEL)action;
 - (instancetype)initWithApp:(AppInfo *)appInfo
                   hotKeyStr:(NSString *)hotKeyStr
                      target:(id)target

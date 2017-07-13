@@ -1,8 +1,8 @@
 //
-//  AXUIWindow.m
+//	AXUIWindow.m
 //
-//  Created by chao on 7/10/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/10/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "AXUIWindow.h"
@@ -16,100 +16,99 @@
 @implementation AXUIWindow
 
 - (instancetype)initWithElement:(id)element {
+	if (self = [super initWithElement:element]) {
+		self.title = nil;
+		self.x = 0;
+		self.y = 0;
+		self.width = 0;
+		self.height =0;
+		self.identifier = nil;
+	}
 
-    if (self = [super initWithElement:element]) {
-        self.title = nil;
-        self.x = 0;
-        self.y = 0;
-        self.width = 0;
-        self.height =0;
-        self.identifier = nil;
-    }
-
-    return self;
+	return self;
 }
 
 - (BOOL)isFocused {
-    return [self getBoolValueOfAttrName:NSAccessibilityFocusedAttribute];
+	return [self getBoolValueOfAttrName:NSAccessibilityFocusedAttribute];
 }
 
 - (BOOL)isMainWindow {
-    return [self getBoolValueOfAttrName:NSAccessibilityMainAttribute];
+	return [self getBoolValueOfAttrName:NSAccessibilityMainAttribute];
 }
 
 - (BOOL)isMinimized {
-    return [self getBoolValueOfAttrName:NSAccessibilityMinimizedAttribute];
+	return [self getBoolValueOfAttrName:NSAccessibilityMinimizedAttribute];
 }
 
 - (BOOL)isModal {
-    return [self getBoolValueOfAttrName:NSAccessibilityModalAttribute];
+	return [self getBoolValueOfAttrName:NSAccessibilityModalAttribute];
 }
 
 - (BOOL)isFullScreen {
-    return [self getBoolValueOfAttrName:@"AXFullScreen"];
+	return [self getBoolValueOfAttrName:@"AXFullScreen"];
 }
 
 - (CGPoint)getPosition {
-    return [self getCGPointValueOfAttrName:NSAccessibilityPositionAttribute]; 
+	return [self getCGPointValueOfAttrName:NSAccessibilityPositionAttribute];
 }
 
 - (CGSize)getSize {
-    return [self getCGSizeValueOfAttrName:NSAccessibilitySizeAttribute];
+	return [self getCGSizeValueOfAttrName:NSAccessibilitySizeAttribute];
 }
 
 - (CGRect)getFrame {
-    CGPoint point = [self getCGPointValueOfAttrName:
-                              NSAccessibilityPositionAttribute];
-    CGSize size = [self getCGSizeValueOfAttrName:NSAccessibilitySizeAttribute];
-    return CGRectMake(point.x, point.y, size.width, size.height);
+	CGPoint point = [self getCGPointValueOfAttrName:
+		NSAccessibilityPositionAttribute];
+	CGSize size = [self getCGSizeValueOfAttrName:NSAccessibilitySizeAttribute];
+	return CGRectMake(point.x, point.y, size.width, size.height);
 }
 
 - (BOOL)setPosition:(CGPoint)position {
-    return [self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
-                                      value:position];
+	return [self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
+	                                  value:position];
 }
 
 - (BOOL)setPositionWithX:(CGFloat)x y:(CGFloat)y {
-    return [self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
-                                      value:CGPointMake(x, y)];
+	return [self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
+	                                  value:CGPointMake(x, y)];
 }
 
 - (BOOL)setSize:(CGSize)size {
-    return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
-                                     value:size];
+	return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
+	                                 value:size];
 }
 
 - (BOOL)setSizeWithWidth:(CGFloat)width height:(CGFloat)height {
-    return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
-                                     value:CGSizeMake(width, height)];
+	return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
+	                                 value:CGSizeMake(width, height)];
 }
 
 - (BOOL)setFrame:(CGRect)rect {
-    if ([self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
-                                   value:rect.origin]) {
-        return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
-                                         value:rect.size];
-    }
+	if ([self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
+	                               value:rect.origin]) {
+		return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
+		                                 value:rect.size];
+	}
 
-    return NO;
+	return NO;
 }
 
 - (BOOL)setMainWindow {
-    return [self setBoolValueForAttrName:NSAccessibilityMainAttribute
-                                   value:YES];
+	return [self setBoolValueForAttrName:NSAccessibilityMainAttribute
+	                               value:YES];
 }
 
 - (BOOL)setFrameWithX:(CGFloat)x
                     y:(CGFloat)y
                 width:(CGFloat)width
                height:(CGFloat)height {
-    if ([self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
-                                   value:CGPointMake(x, y)]) {
-        return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
-                                         value:CGSizeMake(width, height)];
-    }
+	if ([self setCGPointValueForAttrName:NSAccessibilityPositionAttribute
+	                               value:CGPointMake(x, y)]) {
+		return [self setCGSizeValueForAttrName:NSAccessibilitySizeAttribute
+		                                 value:CGSizeMake(width, height)];
+	}
 
-    return NO;
+	return NO;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -118,53 +117,53 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 - (AXUIButton*)getButton:(NSString *)name {
-    id ref = [self getAXUIElementValueOfAttrName:name];
-    if (ref) {
-        return [[AXUIButton alloc] initWithElement:ref];
-    }
+	id ref = [self getAXUIElementValueOfAttrName:name];
+	if (ref) {
+		return [[AXUIButton alloc] initWithElement:ref];
+	}
 
-    return nil;
+	return nil;
 }
 
 - (AXUIButton *)getCloseButton {
-    return [self getButton:NSAccessibilityCloseButtonAttribute];
+	return [self getButton:NSAccessibilityCloseButtonAttribute];
 }
 
 - (AXUIButton *)getDefaultButton {
-    return [self getButton:NSAccessibilityDefaultButtonAttribute];
+	return [self getButton:NSAccessibilityDefaultButtonAttribute];
 }
 
 - (AXUIButton *)getCancelButton {
-    return [self getButton:NSAccessibilityCancelButtonAttribute];
+	return [self getButton:NSAccessibilityCancelButtonAttribute];
 }
 
 - (AXUIButton *)getMinimizeButton {
-    return [self getButton:NSAccessibilityMinimizeButtonAttribute];
+	return [self getButton:NSAccessibilityMinimizeButtonAttribute];
 }
 
 - (AXUIButton *)getToolbarButton {
-    return [self getButton:NSAccessibilityToolbarButtonAttribute];
+	return [self getButton:NSAccessibilityToolbarButtonAttribute];
 }
 
 - (AXUIButton *)getZoomButton {
-    return [self getButton:NSAccessibilityZoomButtonAttribute];
+	return [self getButton:NSAccessibilityZoomButtonAttribute];
 }
 
 - (AXUIButton *)getFullScreenButton {
-    return [self getButton:NSAccessibilityFullScreenButtonAttribute];
+	return [self getButton:NSAccessibilityFullScreenButtonAttribute];
 }
 
 - (BOOL)enterFullScreen {
-    return [self setBoolValueForAttrName:@"AXFullScreen" value:YES];
+	return [self setBoolValueForAttrName:@"AXFullScreen" value:YES];
 }
 
 - (BOOL)exitFullScreen {
-    return [self setBoolValueForAttrName:@"AXFullScreen" value:NO];
+	return [self setBoolValueForAttrName:@"AXFullScreen" value:NO];
 }
 
 - (BOOL)restoreFromMinimized {
-    return [self setBoolValueForAttrName:NSAccessibilityMinimizedAttribute
-                                   value:NO];
+	return [self setBoolValueForAttrName:NSAccessibilityMinimizedAttribute
+	                               value:NO];
 }
 
 @end

@@ -1,8 +1,8 @@
 //
-//  AXMenuBar.m
+//	AXMenuBar.m
 //
-//  Created by chao on 7/10/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/10/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "AXMenuBar.h"
@@ -13,12 +13,11 @@
 @implementation AXMenuBar
 
 - (instancetype)initWithElement:(id)element {
+	if (self = [super initWithElement:element]) {
 
-    if (self = [super initWithElement:element]) {
-        
-    }
+	}
 
-    return self;
+	return self;
 }
 
 @end

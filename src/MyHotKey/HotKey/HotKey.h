@@ -1,8 +1,8 @@
 //
-//  HotKey.h
+//	HotKey.h
 //
-//  Created by chao on 7/12/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/12/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -29,8 +29,8 @@
               keyMod:(NSUInteger)keyMod;
 - (BOOL)unregister;
 - (BOOL)canRestoreWithDefaultHotKey;
-- (BOOL)enable:(NSString *)hotKey; 
-- (BOOL)disable; 
+- (BOOL)enable:(NSString *)hotKey;
+- (BOOL)disable;
 
 - (void)perform;
 - (NSString *)hotKey2String;

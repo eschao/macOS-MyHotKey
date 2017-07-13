@@ -1,8 +1,8 @@
 //
-//  AXApp.h
+//	AXApp.h
 //
-//  Created by chao on 7/10/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/10/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -12,16 +12,16 @@
 
 @interface AXUIApp : AXElement
 
-@property (nonatomic, strong, readonly) NSString  *name;
+@property (nonatomic, strong, readonly) NSString *name;
 
 - (instancetype)initWithPID:(int)pid;
 
 - (int)getPID;
 - (AXMenuBar *)getMenuBar;
-- (NSArray *)getAllWindows; 
+- (NSArray *)getAllWindows;
 - (AXUIWindow *)getFocusedWindow;
-- (AXUIWindow *)getMainWindow; 
-- (BOOL)isHidden; 
+- (AXUIWindow *)getMainWindow;
+- (BOOL)isHidden;
 - (BOOL)isFrontmost;
 
 + (AXUIApp *)getFrontmostApp;

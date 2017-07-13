@@ -24,6 +24,7 @@
 - (id)getParent;
 - (NSString *)getRole;
 - (NSString *)getTitle;
+- (NSString *)getIdentifier;
 - (BOOL)isApplication;
 
 - (id)getValueOfAttrName:(NSString *)name;

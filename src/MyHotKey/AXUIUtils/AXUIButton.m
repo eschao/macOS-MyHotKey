@@ -1,8 +1,8 @@
 //
-//  AXUIButton.m
+//	AXUIButton.m
 //
-//  Created by chao on 7/13/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/13/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "AXUIButton.h"
@@ -10,24 +10,22 @@
 @implementation AXUIButton
 
 - (instancetype)initWithElement:(id)element {
+	if (self = [super initWithElement:element]) {
+	}
 
-    if (self = [super initWithElement:element]) {
-        
-    }
-
-    return self;
+	return self;
 }
 
 - (NSString*)getTitle {
-    return [self getStrValueOfAttrName:NSAccessibilityTitleAttribute];
+	return [self getStrValueOfAttrName:NSAccessibilityTitleAttribute];
 }
 
 - (BOOL)click {
-    return [self performAction:NSAccessibilityPressAction];
+	return [self performAction:NSAccessibilityPressAction];
 }
 
 - (BOOL)cancel {
-    return [self performAction:NSAccessibilityCancelAction];
+	return [self performAction:NSAccessibilityCancelAction];
 }
 
 @end

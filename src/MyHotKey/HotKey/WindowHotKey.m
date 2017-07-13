@@ -1,8 +1,8 @@
 //
-//  WindowHotKey.m
+//	WindowHotKey.m
 //
-//  Created by chao on 8/14/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 8/14/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "WindowHotKey.h"
@@ -26,16 +26,16 @@
                       keyMod:(NSUInteger)keyMod
                       target:(id)target
                       action:(SEL)action {
-    if (self = [super initWithKeyCode:keyCode
-                               keyMod:keyMod
-                               target:target
-                               action:action]) {
-        self.name = name;
-        self.desc = description;
-        self.defaultHotKey = defaultHotKey;
-    }
+	if (self = [super initWithKeyCode:keyCode
+	                           keyMod:keyMod
+	                           target:target
+	                           action:action]) {
+		self.name = name;
+		self.desc = description;
+		self.defaultHotKey = defaultHotKey;
+	}
 
-    return self;
+	return self;
 }
 
 - (instancetype)initWithName:(NSString *)name
@@ -44,15 +44,13 @@
                       hotKey:(NSString *)hotKey
                       target:(id)target
                       action:(SEL)action {
-    if (self = [super initWithHotKey:hotKey
-                              target:target
-                              action:action]) {
-        self.name = name;
-        self.desc = description;
-        self.defaultHotKey = defaultHotKey;
-    }
+	if (self = [super initWithHotKey:hotKey target:target action:action]) {
+		self.name = name;
+		self.desc = description;
+		self.defaultHotKey = defaultHotKey;
+	}
 
-    return self;
+	return self;
 }
 
 - (instancetype)initWithName:(NSString *)name
@@ -61,90 +59,88 @@
                       target:(id)target
                       action:(SEL)action {
 
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *myHotKeys = [userDefaults dictionaryForKey:MyWindowHotKeysKey];
-    NSString *hotKey = nil;
-    if (myHotKeys != nil) {
-        NSDictionary *t = [myHotKeys objectForKey:name];
-        if (t != nil) {
-            hotKey = [t objectForKey:HotKeyKey];
-        }
-    }
-    
-    if (self = [super initWithHotKey:hotKey
-                              target:target
-                              action:action]) {
-        self.name = name;
-        self.desc = description;
-        self.defaultHotKey = defaultHotKey;
-    }
+	NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+	NSDictionary *myHotKeys = [userDefaults dictionaryForKey:MyWindowHotKeysKey];
+	NSString *hotKey = nil;
+	if (myHotKeys != nil) {
+		NSDictionary *t = [myHotKeys objectForKey:name];
+		if (t != nil) {
+			hotKey = [t objectForKey:HotKeyKey];
+		}
+	}
 
-    return self;
+	if (self = [super initWithHotKey:hotKey target:target action:action]) {
+		self.name = name;
+		self.desc = description;
+		self.defaultHotKey = defaultHotKey;
+	}
+
+	return self;
 }
 
 - (NSString *)getName {
-    return self.name;
+	return self.name;
 }
 
 - (BOOL)canRestoreWithDefaultHotKey {
-    if (self.defaultHotKey == nil) {
-        return NO;
-    }
+	if (self.defaultHotKey == nil) {
+		return NO;
+	}
 
-    CombinedKey cKey = {0, 0};
-    if (![self parseHotKey:self.defaultHotKey combinedKey:&cKey]) {
-        return NO;
-    }
+	CombinedKey cKey = {0, 0};
+	if (![self parseHotKey:self.defaultHotKey combinedKey:&cKey]) {
+		return NO;
+	}
 
-    return cKey.keyCode != self.keyCode || cKey.keyMod != self.keyMod;
+	return cKey.keyCode != self.keyCode || cKey.keyMod != self.keyMod;
 }
 
 /*
 - (BOOL)registerWith:(NSString *)hotKey {
-    NSUInteger oldKeyCode = self.keyCode;
-    NSUInteger oldKeyMod = self.keyMod;
+		NSUInteger oldKeyCode = self.keyCode;
+		NSUInteger oldKeyMod = self.keyMod;
 
-    BOOL ret = [super registerWith:hotKey];
+		BOOL ret = [super registerWith:hotKey];
 
-    if (oldKeyCode != self.keyCode
-        || oldKeyMod != self.keyMod) {
-        [PreferenceUitl saveWindowHotKey:self];
-    }
+		if (oldKeyCode != self.keyCode
+				|| oldKeyMod != self.keyMod) {
+				[PreferenceUitl saveWindowHotKey:self];
+		}
 
-    return ret;
+		return ret;
 }
 
 - (BOOL)registerWith:(NSUInteger)keyCode
-              keyMod:(NSUInteger)keyMod {
-    NSUInteger oldKeyCode = self.keyCode;
-    NSUInteger oldKeyMod = self.keyMod;
+							keyMod:(NSUInteger)keyMod {
+		NSUInteger oldKeyCode = self.keyCode;
+		NSUInteger oldKeyMod = self.keyMod;
 
-    BOOL ret = [super registerWith:keyCode keyMod:keyMod];
+		BOOL ret = [super registerWith:keyCode keyMod:keyMod];
 
-    if (oldKeyCode != self.keyCode
-        || oldKeyMod != self.keyMod) {
-        [PreferenceUitl saveWindowHotKey:self];
-    }
+		if (oldKeyCode != self.keyCode
+				|| oldKeyMod != self.keyMod) {
+				[PreferenceUitl saveWindowHotKey:self];
+		}
 
-    return ret;
+		return ret;
 }
 
 - (BOOL)enable:(NSString *)hotKey {
-    if ([super enable:hotKey]) {
-        [PreferenceUitl saveWindowHotKey:self];
-        return YES;
-    }
+		if ([super enable:hotKey]) {
+				[PreferenceUitl saveWindowHotKey:self];
+				return YES;
+		}
 
-    return NO;
+		return NO;
 }
 
 - (BOOL)disable {
-    if ([super disable]) {
-        [PreferenceUitl saveWindowHotKey:self];
-        return YES;
-    }
+		if ([super disable]) {
+				[PreferenceUitl saveWindowHotKey:self];
+				return YES;
+		}
 
-    return NO;
+		return NO;
 }
  */
 

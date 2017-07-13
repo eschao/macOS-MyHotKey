@@ -1,8 +1,8 @@
 //
-//  WindowHotKey.h
+//	WindowHotKey.h
 //
-//  Created by chao on 8/14/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 8/14/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "HotKey.h"

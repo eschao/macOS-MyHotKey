@@ -1,8 +1,8 @@
 //
-//  Constants.h
+//	Constants.h
 //
-//  Created by chao on 7/9/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/9/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,46 +16,46 @@ FOUNDATION_EXPORT NSString * const windowLevelKey;
 FOUNDATION_EXPORT NSString * const windowOrderKey;
 
 typedef NS_ENUM(NSUInteger, HotKeyIDs) {
-    // 2 Grids
-    V2_GRIDS_LEFT = 1,
-    V2_GRIDS_RIGHT,
-    H2_GRIDS_TOP,
-    H2_GRIDS_BOTTOM,
+	// 2 Grids
+	V2_GRIDS_LEFT = 1,
+	V2_GRIDS_RIGHT,
+	H2_GRIDS_TOP,
+	H2_GRIDS_BOTTOM,
 
-    // 3 Grids
-    V3_GRIDS_LEFT,
-    V3_GRIDS_MIDDLE,
-    V3_GRIDS_RIGHT,
-    V3_GRIDS_LEFT_MIDDLE,
-    V3_GRIDS_MIDDLE_RIGHT,
-    H3_GRIDS_TOP,
-    H3_GRIDS_CENTER,
-    H3_GRIDS_BOTTOM,
-    H3_GRIDS_TOP_CENTER,
-    H3_GRIDS_CENTER_BOTTOM,
+	// 3 Grids
+	V3_GRIDS_LEFT,
+	V3_GRIDS_MIDDLE,
+	V3_GRIDS_RIGHT,
+	V3_GRIDS_LEFT_MIDDLE,
+	V3_GRIDS_MIDDLE_RIGHT,
+	H3_GRIDS_TOP,
+	H3_GRIDS_CENTER,
+	H3_GRIDS_BOTTOM,
+	H3_GRIDS_TOP_CENTER,
+	H3_GRIDS_CENTER_BOTTOM,
 
-    // 4 Grids
-    H4_GRIDS_1,
-    H4_GRIDS_2,
-    H4_GRIDS_3,
-    H4_GRIDS_4,
-    H4_GRIDS_123,
-    H4_GRIDS_23,
-    H4_GRIDS_234,
-    V4_GRIDS_1,
-    V4_GRIDS_2,
-    V4_GRIDS_3,
-    V4_GRIDS_4,
-    V4_GRIDS_123,
-    V4_GRIDS_23,
-    V4_GRIDS_234,
-    E4_GRIDS_1,
-    E4_GRIDS_2,
-    E4_GRIDS_3,
-    E4_GRIDS_4,
+	// 4 Grids
+	H4_GRIDS_1,
+	H4_GRIDS_2,
+	H4_GRIDS_3,
+	H4_GRIDS_4,
+	H4_GRIDS_123,
+	H4_GRIDS_23,
+	H4_GRIDS_234,
+	V4_GRIDS_1,
+	V4_GRIDS_2,
+	V4_GRIDS_3,
+	V4_GRIDS_4,
+	V4_GRIDS_123,
+	V4_GRIDS_23,
+	V4_GRIDS_234,
+	E4_GRIDS_1,
+	E4_GRIDS_2,
+	E4_GRIDS_3,
+	E4_GRIDS_4,
 
-    // Other keys;
-    FREE_HOTKEY_ID = 10000,
+	// Other keys;
+	FREE_HOTKEY_ID = 10000,
 };
 
 // 2 Grids name/description
@@ -165,6 +165,9 @@ FOUNDATION_EXPORT NSString * const fullscreenWinHKey;
 FOUNDATION_EXPORT NSString * const centerWinName;
 FOUNDATION_EXPORT NSString * const centerWinDesc;
 FOUNDATION_EXPORT NSString * const centerWinHKey;
+FOUNDATION_EXPORT NSString * const switchWinName;
+FOUNDATION_EXPORT NSString * const switchWinDesc;
+FOUNDATION_EXPORT NSString * const switchWinHKey;
 
 // keys in JSON and Preferences
 FOUNDATION_EXPORT NSString * const CloudPreferenceFile;

@@ -1,8 +1,8 @@
 //
-//  PreferenceUtil.h
+//	PreferenceUtil.h
 //
-//  Created by chao on 8/18/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 8/18/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

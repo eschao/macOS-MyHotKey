@@ -1,8 +1,8 @@
 //
-//  MyAppHotKeys.h
+//	MyAppHotKeys.h
 //
-//  Created by chao on 8/12/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 8/12/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -18,7 +18,7 @@
 - (void)validateWithInstalledApps;
 - (void)registerAll;
 - (void)unregisterAll;
-- (AppHotKey *)appHotKeyAtIndex:(NSInteger)index; 
+- (AppHotKey *)appHotKeyAtIndex:(NSInteger)index;
 - (AppHotKey *)addAppHotKey:(AppInfo *)appInfo
                   hotKeyStr:(NSString *)hotKeyStr;
 - (BOOL)removeAppHotKeyWithAppID:(NSString *)appID;
@@ -29,6 +29,6 @@
 - (void)reloadFromPrefs;
 - (void)addReloadObserver:(id)observer
                  selector:(SEL)observerSelector;
-- (void)removeReloadObserver; 
+- (void)removeReloadObserver;
 
 @end

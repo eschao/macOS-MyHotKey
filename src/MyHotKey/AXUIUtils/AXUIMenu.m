@@ -1,8 +1,8 @@
 //
-//  AXUIMenu.m
+//	AXUIMenu.m
 //
-//  Created by chao on 7/13/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/13/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "AXUIMenu.h"
@@ -10,23 +10,22 @@
 @implementation AXUIMenu
 
 - (instancetype)initWithElement:(id)element {
-    if (self = [super initWithElement:element]) {
-        
-    }
+	if (self = [super initWithElement:element]) {
+	}
 
-    return self;
+	return self;
 }
 
 - (NSString *)getTitle {
-    return [self getStrValueOfAttrName:NSAccessibilityTitleAttribute];
+	return [self getStrValueOfAttrName:NSAccessibilityTitleAttribute];
 }
 
 - (BOOL)show {
-    return [self performAction:NSAccessibilityShowMenuAction];
+	return [self performAction:NSAccessibilityShowMenuAction];
 }
 
 - (BOOL)pick {
-    return [self performAction:NSAccessibilityPickAction];
+	return [self performAction:NSAccessibilityPickAction];
 }
 
 @end

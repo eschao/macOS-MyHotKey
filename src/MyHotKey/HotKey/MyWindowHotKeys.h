@@ -1,8 +1,8 @@
 //
-//  MyWindowHotKeys.h
+//	MyWindowHotKeys.h
 //
-//  Created by chao on 7/19/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/19/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -39,6 +39,7 @@
 @property (nonatomic, strong) WindowHotKey  *minimizeWindow;
 @property (nonatomic, strong) WindowHotKey  *fullscreenWindow;
 @property (nonatomic, strong) WindowHotKey  *centerWindow;
+@property (nonatomic, strong) WindowHotKey  *switchWindow;
 
 + (MyWindowHotKeys *)sharedHotKeys;
 

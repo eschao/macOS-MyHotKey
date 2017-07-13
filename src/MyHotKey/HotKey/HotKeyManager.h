@@ -1,8 +1,8 @@
 //
-//  HotKeyManager.h
+//	HotKeyManager.h
 //
-//  Created by chao on 7/11/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/11/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -18,16 +18,16 @@
 
 /*
 - (HotKey *)bind:(NSString *)name
-          hotKey:(NSString *)hotKey
-   defaultHotKey:(NSString *)defaultHotKey
-          target:(id)targewt
-          action:(SEL)action;
+					hotKey:(NSString *)hotKey
+	 defaultHotKey:(NSString *)defaultHotKey
+					target:(id)targewt
+					action:(SEL)action;
 - (HotKey *)bind:(NSString *)name
-   defaultHotKey:(NSString *)defaultHotKey
-         keyCode:(NSUInteger)keyCode
-          keyMod:(NSUInteger)keyMod
-          target:(id)target
-          action:(SEL)action;
+	 defaultHotKey:(NSString *)defaultHotKey
+				 keyCode:(NSUInteger)keyCode
+					keyMod:(NSUInteger)keyMod
+					target:(id)target
+					action:(SEL)action;
 */
 - (BOOL)bind:(HotKey *)hotKey;
 - (BOOL)bind:(HotKey *)hotKey

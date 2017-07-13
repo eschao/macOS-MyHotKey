@@ -1,19 +1,17 @@
 //
-//  Constants.m
+//	Constants.m
 //
-//  Created by chao on 7/9/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/9/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
-
 #import "Constants.h"
-
-NSString * const appNameKey             = @"appName";
-NSString * const appPIDKey              = @"appPID";
-NSString * const windowOriginKey        = @"windowOrigin";
-NSString * const windowSizeKey          = @"windowSize";
-NSString * const windowIDKey            = @"windowID";
-NSString * const windowLevelKey         = @"windowLevel";
-NSString * const windowOrderKey         = @"windowOrder";
+NSString * const appNameKey                 = @"appName";
+NSString * const appPIDKey                  = @"appPID";
+NSString * const windowOriginKey            = @"windowOrigin";
+NSString * const windowSizeKey              = @"windowSize";
+NSString * const windowIDKey                = @"windowID";
+NSString * const windowLevelKey             = @"windowLevel";
+NSString * const windowOrderKey             = @"windowOrder";
 
 // 2 Grids name/description
 NSString * const h2GridsTopName             = @"2-horizontal-grids-top";
@@ -121,6 +119,9 @@ NSString * const fullscreenWinHKey          = @"cmd ctrl shift f";
 NSString * const centerWinName              = @"center-win";
 NSString * const centerWinDesc              = @"Center Window";
 NSString * const centerWinHKey              = @"cmd ctrl shift g";
+NSString * const switchWinName              = @"switch-win";
+NSString * const switchWinDesc              = @"Switch Window";
+NSString * const switchWinHKey              = @"opt esc";
 
 NSString * const CloudPreferenceFile        = @"Documents/MyHotKeyPreference.json";
 NSString * const UpdateDateKey              = @"UpdateDate";

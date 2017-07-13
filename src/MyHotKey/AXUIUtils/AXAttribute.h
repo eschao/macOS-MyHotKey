@@ -1,28 +1,27 @@
 //
-//  AXAttribute.h
+//	AXAttribute.h
 //
-//  Created by chao on 7/10/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/10/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
 typedef enum {
-    kAXAttrValueIllegalType     = kAXValueIllegalType,  // 0
-    kAXAttrValueCGPointType     = kAXValueCGPointType,  // 1
-    kAXAttrValueCGSizeType      = kAXValueCGSizeType,   // 2
-    kAXAttrValueCGRectType      = kAXValueCGRectType,   // 3
-    kAXAttrValueCFRangeType     = kAXValueCFRangeType,  // 4
-    kAXAttrValueErrorType       = kAXValueAXErrorType,  // 5
-    kAXAttrValueUnknownType     = -1,
-    kAXAttrValueNStringType     = 1000,
-    kAXAttrValueNValueType      = 1001
-    
+	kAXAttrValueIllegalType  = kAXValueIllegalType, // 0
+	kAXAttrValueCGPointType  = kAXValueCGPointType, // 1
+	kAXAttrValueCGSizeType   = kAXValueCGSizeType,  // 2
+	kAXAttrValueCGRectType   = kAXValueCGRectType,  // 3
+	kAXAttrValueCFRangeType  = kAXValueCFRangeType, // 4
+	kAXAttrValueErrorType    = kAXValueAXErrorType, // 5
+	kAXAttrValueUnknownType  = -1,
+	kAXAttrValueNStringType  = 1000,
+	kAXAttrValueNValueType   = 1001
 } AXAttrValueType;
 
 @interface AXAttribute : NSObject
 
-@property (nonatomic, strong) NSString          *name;
+@property (nonatomic, strong) NSString *name;
 
 - (instancetype)initWithName:(NSString *)name;
 - (instancetype)initWithCName:(CFStringRef)name;
@@ -31,7 +30,7 @@ typedef enum {
 - (BOOL)isSettable:(AXUIElementRef)element;
 
 - (BOOL)setValueWithNSString:(NSString *)value
-                     element:(AXUIElementRef)element;
+                    element:(AXUIElementRef)element;
 - (BOOL)setValueWithNSValue:(NSValue *)value
                     element:(AXUIElementRef)element;
 - (BOOL)setValueWithCGPoint:(CGPoint)point
@@ -41,7 +40,7 @@ typedef enum {
 - (BOOL)setValueWithCGRect:(CGRect)rect
                    element:(AXUIElementRef)element;
 - (BOOL)setValueWithCFRange:(CFRange)range
-                  element:(AXUIElementRef)element;
+                    element:(AXUIElementRef)element;
 - (BOOL)setValueWithNSRange:(NSRange)range
                     element:(AXUIElementRef)element;
 

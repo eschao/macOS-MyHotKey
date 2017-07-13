@@ -1,21 +1,21 @@
 //
-//  AppInfo.h
+//	AppInfo.h
 //
-//  Created by chao on 8/11/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 8/11/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
 @interface AppInfo : NSObject
 
-@property (strong, readonly) NSString   *appUrl;
-@property (strong, readonly) NSString   *appName;
-@property (strong, readonly) NSString   *appIcon;
-@property (strong, readonly) NSString   *appID;
-@property (strong, readonly) NSString   *appExecutable;
-@property (strong, readonly) NSString   *appType;
-@property BOOL isInstalled; 
+@property (strong, readonly) NSString *appUrl;
+@property (strong, readonly) NSString *appName;
+@property (strong, readonly) NSString *appIcon;
+@property (strong, readonly) NSString *appID;
+@property (strong, readonly) NSString *appExecutable;
+@property (strong, readonly) NSString *appType;
+@property BOOL isInstalled;
 
 - (instancetype)initWith:(NSString *)url
                  appName:(NSString *)name

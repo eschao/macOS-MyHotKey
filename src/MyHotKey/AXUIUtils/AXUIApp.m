@@ -1,8 +1,8 @@
 //
-//  AXApp.m
+//	AXApp.m
 //
-//  Created by chao on 7/10/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/10/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import "AXUIApp.h"
@@ -17,23 +17,23 @@
 @implementation AXUIApp
 
 - (instancetype)initWithPID:(int)pid {
-    id appRef = CFBridgingRelease(AXUIElementCreateApplication(pid));
+	id appRef = CFBridgingRelease(AXUIElementCreateApplication(pid));
 
-    if (appRef == nil) {
-        NSLog(@"Can not create AXUIElement from pid: %d", pid);
-        return nil;
-    }
+	if (appRef == nil) {
+		NSLog(@"Can not create AXUIElement from pid: %d", pid);
+		return nil;
+	}
 
-    if (self = [super initWithElement:appRef]) {
-        self.pid = pid;
-        self.name = [self getTitle];
-    }
+	if (self = [super initWithElement:appRef]) {
+		self.pid = pid;
+		self.name = [self getTitle];
+	}
 
-    return self;
+	return self;
 }
 
 - (int)getPID {
-    return self.pid;
+	return self.pid;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -42,63 +42,63 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 - (AXUIWindow *)getFocusedWindow {
-    id ref = [self getAXUIElementValueOfAttrName:
-                       NSAccessibilityFocusedWindowAttribute];
-   
-    if (ref) {
-        return [[AXUIWindow alloc] initWithElement:ref];
-    }
+	id ref = [self
+		getAXUIElementValueOfAttrName:NSAccessibilityFocusedWindowAttribute];
 
-    return nil;
+	if (ref) {
+		return [[AXUIWindow alloc] initWithElement:ref];
+	}
+
+	return nil;
 }
 
 - (NSArray *)getAllWindows {
-    NSArray *windows = [self getArrayValueOfAttrName:
-                                 NSAccessibilityWindowsAttribute];
+	NSArray *windows = [self
+		getArrayValueOfAttrName:NSAccessibilityWindowsAttribute];
 
-    if (windows != nil) {
-        NSMutableArray *array = [[NSMutableArray alloc]
-                                    initWithCapacity:windows.count];
+	if (windows != nil) {
+		NSMutableArray *array = [[NSMutableArray alloc]
+			initWithCapacity:windows.count];
 
-        for (int i=0; i<windows.count; ++i) {
-            [array addObject:[[AXUIWindow alloc] initWithElement:
-                                          [windows objectAtIndex:i]]];
-        }
+		for (int i=0; i<windows.count; ++i) {
+			[array addObject:[[AXUIWindow alloc] initWithElement:
+				[windows objectAtIndex:i]]];
+		}
 
-        return array;
-    }
+		return array;
+	}
 
-    return nil;
+	return nil;
 }
 
 - (AXMenuBar *)getMenuBar {
-    id ref = [self getAXUIElementValueOfAttrName:
-                                   NSAccessibilityMenuBarAttribute];
-   
-    if (ref) {
-        return [[AXMenuBar alloc] initWithElement:ref];
-    }
+	id ref = [self
+		getAXUIElementValueOfAttrName:NSAccessibilityMenuBarAttribute];
 
-    return nil;
+	if (ref) {
+		return [[AXMenuBar alloc] initWithElement:ref];
+	}
+
+	return nil;
 }
 
 - (BOOL)isFrontmost {
-    return [self getBoolValueOfAttrName:NSAccessibilityFrontmostAttribute];
+	return [self getBoolValueOfAttrName:NSAccessibilityFrontmostAttribute];
 }
 
 - (BOOL)isHidden {
-    return [self getBoolValueOfAttrName:NSAccessibilityHiddenAttribute];
+	return [self getBoolValueOfAttrName:NSAccessibilityHiddenAttribute];
 }
 
 - (AXUIWindow *)getMainWindow {
-    id ref = [self getAXUIElementValueOfAttrName:
-                                   NSAccessibilityMainWindowAttribute];
-   
-    if (ref) {
-        return [[AXUIWindow alloc] initWithElement:ref];
-    }
+	id ref = [self
+		getAXUIElementValueOfAttrName:NSAccessibilityMainWindowAttribute];
 
-    return nil;
+	if (ref) {
+		return [[AXUIWindow alloc] initWithElement:ref];
+	}
+
+	return nil;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -107,30 +107,30 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 + (AXUIApp *)getFrontmostApp {
-    NSWorkspace *sharedWS = [NSWorkspace sharedWorkspace];
-    NSRunningApplication *runningApp = sharedWS.frontmostApplication;
+	NSWorkspace *sharedWS = [NSWorkspace sharedWorkspace];
+	NSRunningApplication *runningApp = sharedWS.frontmostApplication;
 
-    if (runningApp == nil) {
-        return nil;
-    }
+	if (runningApp == nil) {
+		return nil;
+	}
 
-    return [[AXUIApp alloc] initWithPID:runningApp.processIdentifier];
+	return [[AXUIApp alloc] initWithPID:runningApp.processIdentifier];
 }
 
 + (NSArray *)getRunningApps {
-    NSWorkspace *sharedWS = [NSWorkspace sharedWorkspace];
-    NSArray *runningApps = sharedWS.runningApplications;
+	NSWorkspace *sharedWS = [NSWorkspace sharedWorkspace];
+	NSArray *runningApps = sharedWS.runningApplications;
 
-    if (runningApps == nil) {
-        return nil;
-    }
+	if (runningApps == nil) {
+		return nil;
+	}
 
-    NSMutableArray *apps = [[NSMutableArray alloc] init];
-    for (NSRunningApplication *app in runningApps) {
-        [apps addObject:[[AXUIApp alloc] initWithPID:app.processIdentifier]];
-    }
+	NSMutableArray *apps = [[NSMutableArray alloc] init];
+	for (NSRunningApplication *app in runningApps) {
+		[apps addObject:[[AXUIApp alloc] initWithPID:app.processIdentifier]];
+	}
 
-    return apps;
+	return apps;
 }
 
 @end

@@ -1,8 +1,8 @@
 //
-//  AXUIWindow.h
+//	AXUIWindow.h
 //
-//  Created by chao on 7/10/16.
-//  Copyright © 2016 eschao. All rights reserved.
+//	Created by chao on 7/10/16.
+//	Copyright © 2016 eschao. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -11,27 +11,27 @@
 
 @interface AXUIWindow : AXElement
 
-@property (nonatomic, strong) NSString      *title;
-@property (nonatomic) NSInteger             x;
-@property (nonatomic) NSInteger             y;
-@property (nonatomic) NSInteger             width;
-@property (nonatomic) NSInteger             height;
-@property (nonatomic, strong) NSString      *identifier;
-@property CGWindowID                        windowID;
+@property (nonatomic, strong) NSString  *title;
+@property (nonatomic) NSInteger         x;
+@property (nonatomic) NSInteger         y;
+@property (nonatomic) NSInteger         width;
+@property (nonatomic) NSInteger         height;
+@property (nonatomic, strong) NSString  *identifier;
+@property CGWindowID                    windowID;
 
 - (instancetype)initWithElement:(id)element;
 
 - (BOOL)isFocused;
-- (BOOL)isMainWindow; 
-- (BOOL)isMinimized; 
-- (BOOL)isModal; 
+- (BOOL)isMainWindow;
+- (BOOL)isMinimized;
+- (BOOL)isModal;
 - (BOOL)isFullScreen;
 
 - (CGPoint)getPosition;
 - (CGSize)getSize;
 - (CGRect)getFrame;
 
-- (BOOL)setMainWindow; 
+- (BOOL)setMainWindow;
 - (BOOL)setPosition:(CGPoint)position;
 - (BOOL)setPositionWithX:(CGFloat)x y:(CGFloat)y;
 - (BOOL)setSize:(CGSize)size;
