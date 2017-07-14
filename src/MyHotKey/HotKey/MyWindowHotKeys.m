@@ -590,37 +590,39 @@ static dispatch_once_t  _onceToken;
 	NSLog(@"Perform action: %@", switchWinName);
 	AXUIApp *frontmostApp = [AXUIApp getFrontmostApp];
 	AXUIWindow *focusedWindow = [frontmostApp getFocusedWindow];
-	
+  
+  if (focusedWindow == nil) {
+    NSLog(@"No focused window for frontmost App");
+    return;
+  }
+  
 	if ([focusedWindow isMinimized]) {
 		[focusedWindow restoreFromMinimized];
 		return;
 	}
 	
-	NSString *title = [focusedWindow getTitle];
-	NSLog(@"Win title: %@", title);
-	NSArray *windows = [frontmostApp getAllWindows];
+	NSString *identifier = [focusedWindow getIdentifier];
+	NSLog(@"Win ID: %@", identifier);
+  
+  NSArray *windows = [self getSortedWindowsFrom:[frontmostApp getAllWindows]];
 	if (windows && windows.count > 1) {
 		NSInteger i = 0;
-		for (AXUIWindow *win in windows) {
-			NSLog(@"For [%ld] Title: %@", i, [win getTitle]);
+		for (NSDictionary *item in windows) {
 			i++;
-			if ([title isEqualToString:[win getTitle]]) {
+      AXUIWindow *win = [item objectForKey:@"window"];
+      NSString* winId = [item objectForKey:@"id"];
+			if ([identifier isEqualToString:winId]) {
+        focusedWindow = win;
 				break;
 			}
 		}
 
-		AXUIWindow *nextWin = nil;
-		while (nextWin == nil) {
-			if (i >= windows.count) {
-				i = 0;
-			}
-			
-			AXUIWindow *win = [windows objectAtIndex:i++];
-			NSString *role = [win getRole];
-			if (role != nil && [role isNotEqualTo:@"AXUnknown"]) {
-				nextWin = win;
-			}
+    NSLog(@"Found next at %ld", i);
+		if (i >= windows.count) {
+			i = 0;
 		}
+    AXUIWindow *nextWin = [[windows objectAtIndex:i] objectForKey:@"window"];
+    NSLog(@"Next Win: [%ld] %@", i, [nextWin getIdentifier]);
 		
 		if (nextWin != focusedWindow) {
   		if ([nextWin isMinimized]) {
@@ -632,6 +634,29 @@ static dispatch_once_t  _onceToken;
   		}
 		}
 	}
+}
+
+- (NSArray*)getSortedWindowsFrom:(NSArray *)windows {
+  NSMutableArray *array = [[NSMutableArray alloc]
+                            initWithCapacity:windows.count];
+  
+  for (AXUIWindow *win in windows) {
+    NSString *role = [win getRole];
+    if (role == nil || [role isNotEqualTo:@"AXWindow"]) {
+      continue;
+    }
+    
+    NSString *identifier = [win getIdentifier];
+    [array addObject:
+     [NSDictionary dictionaryWithObjectsAndKeys:identifier, @"id",
+      win, @"window", nil]];
+    NSLog(@"Add window: %@", identifier);
+  }
+  
+  NSArray *descriptors = [NSArray arrayWithObjects:
+                          [[NSSortDescriptor alloc] initWithKey:@"id"
+                                                      ascending:YES], nil];
+  return [array sortedArrayUsingDescriptors:descriptors];
 }
 
 @end

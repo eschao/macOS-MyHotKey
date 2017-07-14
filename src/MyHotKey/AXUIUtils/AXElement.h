@@ -25,6 +25,7 @@
 - (NSString *)getRole;
 - (NSString *)getTitle;
 - (NSString *)getIdentifier;
+- (NSInteger)getChildrenCount;
 - (BOOL)isApplication;
 
 - (id)getValueOfAttrName:(NSString *)name;

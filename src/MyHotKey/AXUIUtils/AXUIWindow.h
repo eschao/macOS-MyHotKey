@@ -30,6 +30,7 @@
 - (CGPoint)getPosition;
 - (CGSize)getSize;
 - (CGRect)getFrame;
+- (NSString *)getIdentifier;
 
 - (BOOL)setMainWindow;
 - (BOOL)setPosition:(CGPoint)position;

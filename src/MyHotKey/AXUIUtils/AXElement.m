@@ -146,6 +146,19 @@
 	return [self hasAttribute:NSAccessibilityApplicationRole] != nil;
 }
 
+- (NSInteger)getChildrenCount {
+  CFIndex count = 0;
+  NSString *name = NSAccessibilityChildrenAttribute;
+  if (AXUIElementGetAttributeValueCount((__bridge AXUIElementRef)self.element,
+                                        (__bridge CFStringRef)name , &count
+                                        ) == kAXErrorSuccess) {
+    return count;
+  }
+  else {
+    return 0;
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Attribute value getter functions

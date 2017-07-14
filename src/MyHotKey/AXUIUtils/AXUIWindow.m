@@ -56,6 +56,17 @@
 	return [self getCGSizeValueOfAttrName:NSAccessibilitySizeAttribute];
 }
 
+- (NSString *)getIdentifier {
+  NSString *title = [self getTitle];
+  if (title == nil) {
+    title = @"";
+  }
+  title = [title stringByTrimmingCharactersInSet:
+           [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  NSInteger childrenCount = [self getChildrenCount];
+  return [NSString stringWithFormat:@"%@-%ld", title, childrenCount];
+}
+
 - (CGRect)getFrame {
 	CGPoint point = [self getCGPointValueOfAttrName:
 		NSAccessibilityPositionAttribute];
